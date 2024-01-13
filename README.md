@@ -20,7 +20,7 @@
 
 This install Xcode, and the tools such as *git*.
 
-Login in to iCloud.
+Login in to iCloud and enbale Documents Sync.
 
 Updating system:
 
@@ -83,6 +83,14 @@ nix-env -iA nixpkgs.git
 nix shell nixpkgs.git
 ```
 
+### Install Homebrew 
+
+which is controlled via nix-darwin later.
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ### Install nix-darwin
 
 ```bash
@@ -101,7 +109,9 @@ nix build .#darwinConfigurations.Kare.system --extra-experimental-features "nix-
 
 # nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 
-./result/sw/bin/darwin-rebuild switch --flake .
+# ./result/sw/bin/darwin-rebuild switch --flake .
+
+nix run nix-darwin -- switch --flake .#Kare
 ```
 
 ### Rebuild / Update
@@ -114,3 +124,15 @@ darwin-rebuild switch --flake .#Kare
 ## Finalisation
 
 ...
+
+- Setup iterm config
+- Copy old fish history
+- Import recenttracks.txt
+
+## Housekeeping 
+
+Formatting nix files:
+
+```bash
+nix run nixpkgs#nixfmt -- .
+```
