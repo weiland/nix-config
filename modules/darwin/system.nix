@@ -1,34 +1,71 @@
 { pkgs, ... }: {
   system = {
 
+    activationScripts.postActivation.text = ''
+      # Stop iTunes from responding to the keyboard media keys
+      launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2>/dev/null
+
+      # Use list view in all Finder windows by default
+      # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+      defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+      # show dock on both displays
+      defaults write com.apple.Dock appswitcher-all-displays -bool true
+
+      # Show the ~/Library folder
+      chflags nohidden ~/Library
+
+      # Disable emoji substitution
+      defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+    '';
+
     defaults = {
 
       LaunchServices.LSQuarantine =
         false; # disable quarantine for downloaded files
 
       NSGlobalDomain = {
-        _HIHideMenuBar = true; # Auto hide menu bar
+        _HIHideMenuBar = false;
+
         AppleInterfaceStyleSwitchesAutomatically = true;
 
         ApplePressAndHoldEnabled = false;
-        InitialKeyRepeat = 10;
-        KeyRepeat = 1;
+        InitialKeyRepeat = 18;
+        KeyRepeat = 2;
 
         NSAutomaticDashSubstitutionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
 
+        NSWindowResizeTime = 1.0e-3;
+
         # Disable automatic capitalization
         NSAutomaticCapitalizationEnabled = false;
+
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+
+        PMPrintingExpandedStateForPrint = true;
+        PMPrintingExpandedStateForPrint2 = true;
+
+        # NSDocumentSaveNewDocumentsToCloud = false; # TODO: test difference with icloud Documents.
       };
 
       dock = {
         autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.0;
+        expose-animation-duration = 0.1;
+        largesize = 48;
+        launchanim = false;
+        magnification = false;
+        mineffect = "scale";
+        mru-spaces = false;
         orientation = "left";
-        # show-recents = false;
+        show-recents = false;
         showhidden = true; # TODO: just testing
         static-only = true; # show only open applications
-        tilesize = 48;
+        tilesize = 36;
       };
 
       trackpad = {
@@ -113,6 +150,11 @@
         "com.apple.menuextra.clock" = {
           # TODO: does not work?
           DateFormat = "EEE d H:mm";
+        };
+        "com.apple.TimeMachine" = { DoNotOfferNewDisksForBackup = true; };
+        "net.sf.Jumpcut" = {
+          launchOnStartup = true;
+          checkForUpdates = true;
         };
       };
     };

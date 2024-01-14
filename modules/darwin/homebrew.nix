@@ -12,6 +12,8 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
+    brews = [ "openconnect" ];
+
     casks = [
       "anki"
       "dash"
@@ -24,7 +26,6 @@
       "jumpcut"
       "mactracker"
       "obsidian"
-      "openconnect"
       "sf-symbols"
       "spotify"
       "rectangle"

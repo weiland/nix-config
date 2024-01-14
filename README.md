@@ -18,9 +18,11 @@
 ### Setup machine
 
 
-This install Xcode, and the tools such as *git*.
+This install Xcode, and their tools such as *git*.
 
 Login in to iCloud and enbale Documents Sync.
+
+Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
 
 Updating system:
 
@@ -48,12 +50,17 @@ Create code directory:
 
 ```bash
 mkdir -p ~/src/weiland
+mkdir ~/src/clones
+mkdir ~/src/go
 ```
 
 Clone *nix-config*
 
 ```bash
-git clone ~/src/weiland/nix-config
+git clone http://github.com/weiland/nix-config.git ~/src/weiland/nix-config
+
+# and cd into it
+cd ~/src/weiland/nix-config
 ```
 
 ### Install nix
@@ -79,8 +86,8 @@ Now you could use git via nix:
 
 ```bash
 nix-env -iA nixpkgs.git
-# or with flake
-nix shell nixpkgs.git
+# or via flakes
+nix shell nixpkgs#git
 ```
 
 ### Install Homebrew 
@@ -117,22 +124,49 @@ nix run nix-darwin -- switch --flake .#Kare
 ### Rebuild / Update
 
 ```bash
+nix run nix-darwin -- switch --flake .#Kare
+
+# of if not via flake
 darwin-rebuild switch --flake .#Kare
 ```
 
 
 ## Finalisation
 
+### iterm
+
+Set colorscheme:
+
+```fish
+open ~/src/weiland/nix-config/data/iterm/Oceanic-Next.itermcolors
+```
+
+Other colorschemes for iterm can be found at: https://iterm2colorschemes.com
+and should be downloaded to `data/iterm/`.
+
 ...
 
-- Setup iterm config
+- Setup iterm config / Profile
 - Copy old fish history
 - Import recenttracks.txt
 
-## Housekeeping 
+## Updates
+
+```bash
+nix flake update
+```
+
+## Housekeeping
+
+### Code formatting
 
 Formatting nix files:
 
 ```bash
 nix run nixpkgs#nixfmt -- .
 ```
+
+## Backup for a new machine
+
+- fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
+- manually installed fonts
