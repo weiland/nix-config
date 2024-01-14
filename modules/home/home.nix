@@ -45,7 +45,7 @@
       entr
       fd
       ffmpeg
-      fira-code
+      # fira-code # comes already from the nerdfonts below
       # fzf
       git-open
       htop
@@ -54,7 +54,7 @@
       jq
       # neovim # due to lua config trouble up here
       (nerdfonts.override {
-        fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" ];
+        fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" "Meslo" ];
       })
       nix-output-monitor
       nmap
@@ -68,7 +68,7 @@
       stow
       # swift-format # is not yet version 5.9
       tealdeer
-      terminal-notifier
+      # terminal-notifier # requires rosetta (and is rather old)
       tig
       tree-sitter
       wifi-password

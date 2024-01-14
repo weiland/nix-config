@@ -37,6 +37,8 @@
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
 
+        NSAutomaticWindowAnimationsEnabled = false;
+
         NSWindowResizeTime = 1.0e-3;
 
         # Disable automatic capitalization
@@ -97,6 +99,18 @@
         location = "/tmp";
       };
 
+      CustomUserPreferences = {
+        "net.sf.Jumpcut" = {
+          launchOnStartup = true;
+          checkForUpdates = true;
+        };
+        "com.knollsoft.Rectangle" = {
+          hideMenubarIcon = 1;
+          launchOnLogin = 1;
+        };
+        "com.flexibits.fantastical2.mac" = { WeeksPerQuarter = 12; };
+      };
+
       CustomSystemPreferences = {
         NSGlobalDomain = {
           # Set the system accent color, TODO: https://github.com/LnL7/nix-darwin/pull/230
@@ -119,8 +133,8 @@
           _FXSortFoldersFirst = true;
 
           # New window use the $HOME path
-          NewWindowTarget = "PfHm";
-          NewWindowTargetPath = "file://$HOME/";
+          NewWindowTarget = "PfLo";
+          NewWindowTargetPath = "file://Users/pw/";
 
           # Allow text selection in Quick Look
           QLEnableTextSelection = true;
@@ -140,8 +154,9 @@
           IncludeInternalDebugMenu = true;
           WebKitDeveloperExtras = true;
           WebKitDeveloperExtrasEnabledPreferenceKey = true;
-          "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" =
-            true;
+          # ContentPageGroupIdentifier = {
+          #   WebKit2DeveloperExtrasEnabled = true;
+          # };
         };
         "com.apple.desktopservices" = { # prevent .DS_Store creation.
           DSDontWriteUSBStores = true;
@@ -152,10 +167,6 @@
           DateFormat = "EEE d H:mm";
         };
         "com.apple.TimeMachine" = { DoNotOfferNewDisksForBackup = true; };
-        "net.sf.Jumpcut" = {
-          launchOnStartup = true;
-          checkForUpdates = true;
-        };
       };
     };
 

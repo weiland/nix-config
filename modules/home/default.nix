@@ -1,5 +1,5 @@
 {
 #   self,
 inputs, config, pkgs, ... }: {
-  imports = [ ./home.nix ./programs.nix ];
+  imports = [ ../neovim ./home.nix ./programs.nix ];
 }

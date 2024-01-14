@@ -150,6 +150,59 @@ and should be downloaded to `data/iterm/`.
 - Copy old fish history
 - Import recenttracks.txt
 
+### Internet Accounts / Mail
+
+Login to email accounts.
+
+
+### Firefox Dev
+
+Login to Firefox Sync.
+
+
+### Fantastical
+
+Login via Apple and add main calendar.
+
+### Import files from other/old device
+
+#### via ssh and rsync
+
+```bash
+# copy with archive and compress option
+rsync -avz -e ssh old@device.local:~/Downloads ~/Downloads
+
+# copying web projects but skipping node modules
+rsync -avz -e ssh old@device.local:~/src ~/src --exclude node_modules
+```
+
+### Finder sidebar
+
+Adjust items in Finder sidebar.
+
+
+### Login to `gh` cli
+
+```command
+gh auth login
+```
+
+
+### Spotify
+
+Login.
+
+
+### Ivory
+
+login to accounts.
+
+
+### Enable disk encryption
+
+### Make first time machine backup
+
+
 ## Updates
 
 ```bash

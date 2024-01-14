@@ -13,10 +13,18 @@
   outputs = { self, nixpkgs, home-manager, nix-darwin }: {
 
     darwinConfigurations."Kare" = nix-darwin.lib.darwinSystem {
-
       system = "aarch64-darwin";
       modules =
         [ home-manager.darwinModules.home-manager ./hosts/Kare/default.nix ];
     };
+
+    homeConfigurations.pw = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      modules = [ ./config/home ./config/neovim ];
+    };
+
+    perSystem = { pkgs, ... }: {
+      devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
+      };
   };
 }

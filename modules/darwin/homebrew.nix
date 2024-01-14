@@ -24,6 +24,7 @@
       "iterm2"
       "keyboard-cleaner"
       "jumpcut"
+      # "lulu"
       "mactracker"
       "obsidian"
       "sf-symbols"
