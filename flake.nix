@@ -20,11 +20,9 @@
 
     homeConfigurations.pw = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [ ./config/home ./config/neovim ];
+      modules = [ ./modules/home ./modules/neovim ];
     };
 
-    perSystem = { pkgs, ... }: {
-      devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
-      };
+    devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
   };
 }
