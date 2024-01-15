@@ -23,6 +23,6 @@
       modules = [ ./modules/home ./modules/neovim ];
     };
 
-    devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
+    # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
   };
 }

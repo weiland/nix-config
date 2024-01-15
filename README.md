@@ -144,6 +144,9 @@ open ~/src/weiland/nix-config/data/iterm/Oceanic-Next.itermcolors
 Other colorschemes for iterm can be found at: https://iterm2colorschemes.com
 and should be downloaded to `data/iterm/`.
 
+
+- Allow Full Disk Access
+
 ...
 
 - Setup iterm config / Profile
@@ -222,4 +225,5 @@ nix run nixpkgs#nixfmt -- .
 ## Backup for a new machine
 
 - fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
+- zoxide history (optional)
 - manually installed fonts

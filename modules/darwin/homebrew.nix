@@ -19,7 +19,7 @@
       "dash"
       "discord"
       # "eloston-chromium"
-      "firefox-nightly"
+      "firefox-developer-edition"
       # "ipatool"
       "iterm2"
       "keyboard-cleaner"
