@@ -39,6 +39,7 @@
       any-nix-shell
       commit-mono # font with ligatures
       curl
+      colima
       deno
       #docker
       #docker-compose
@@ -61,6 +62,7 @@
       nodejs_20
       #openconnect # fails
       #      pdfgrep
+      podman # trying out as docker replacement
       ripgrep
       rustup
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
