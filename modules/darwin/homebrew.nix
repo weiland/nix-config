@@ -12,19 +12,18 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "openconnect" ];
+    brews = [ "ipatool" "openconnect" ];
 
     casks = [
       "anki"
       "dash"
       "discord"
-      # "eloston-chromium"
+      "eloston-chromium"
       "firefox-developer-edition"
-      # "ipatool"
       "iterm2"
       "keyboard-cleaner"
       "jumpcut"
-      # "lulu"
+      "lulu"
       "mactracker"
       "obsidian"
       "sf-symbols"
@@ -39,6 +38,7 @@
       "qlstephen"
       "quicklook-json"
       "tor-browser"
+      "ukelele"
       "utm"
     ];
 
@@ -48,6 +48,7 @@
       icebuddy = 1595947689;
       Ivory = 6444602274;
       mela = 1568924476;
+      MicrosoftOutlook = 985367838;
       Photomator = 1444636541;
       pixelmatorpro = 1289583905;
       reeder = 1529448980;

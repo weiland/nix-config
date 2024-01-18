@@ -162,6 +162,8 @@ Login to email accounts.
 
 Login to Firefox Sync.
 
+Adjust Toolbar.
+
 
 ### Fantastical
 

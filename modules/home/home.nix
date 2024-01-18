@@ -75,7 +75,7 @@
       xsv
       yt-dlp
 
-      yarn
+      yarn-berry
       #       nix # comes with nix-darwin
       nodePackages.serve
       nodePackages.pnpm
