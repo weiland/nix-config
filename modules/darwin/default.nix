@@ -43,11 +43,11 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   launchd.user.agents.SSH-ADD = {
-    serviceConfig.ProgramArguments = [
-      "/usr/bin/ssh-add"
-      "--apple-load-keychain"
-    ];
+    serviceConfig.ProgramArguments =
+      [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
     serviceConfig.RunAtLoad = true;
+    serviceConfig.StandardErrorPath = "/var/log/ssh-add-err.log";
+    serviceConfig.StandardOutPath = "/var/log/ssh-add-out.log";
   };
 
   # users.users.pw = {
