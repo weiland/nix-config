@@ -42,6 +42,14 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
+  launchd.user.agents.SSH-ADD = {
+    serviceConfig.ProgramArguments = [
+      "/usr/bin/ssh-add"
+      "--apple-load-keychain"
+    ];
+    serviceConfig.RunAtLoad = true;
+  };
+
   # users.users.pw = {
   # 	name = "pw";
   # 	home = "/Users/pw";

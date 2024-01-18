@@ -12,7 +12,7 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "ipatool" "openconnect" ];
+    brews = [ "openconnect" ];
 
     casks = [
       "anki"
