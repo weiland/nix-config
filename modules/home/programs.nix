@@ -329,12 +329,7 @@
       enable = true;
       enableFishIntegration = true;
       settings = {
-        battery = {
-          full_symbol = "🔋";
-          charging_symbol = "⚡️";
-          discharging_symbol = "💀";
-        };
-        command_timeout = 256;
+        command_timeout = 128;
         directory = {
           truncation_length = 5;
           truncation_symbol = "…/";

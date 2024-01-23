@@ -12,9 +12,10 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "openconnect" ];
+    brews = [ "nss" "openconnect" ];
 
     casks = [
+      "1password"
       "anki"
       "dash"
       "discord"
@@ -23,7 +24,7 @@
       "iterm2"
       "keyboard-cleaner"
       "jumpcut"
-      "lulu"
+      # "lulu"
       "mactracker"
       "obsidian"
       "sf-symbols"
@@ -49,6 +50,7 @@
       Ivory = 6444602274;
       mela = 1568924476;
       MicrosoftOutlook = 985367838;
+      # OnePassword7 = 1333542190;
       Photomator = 1444636541;
       pixelmatorpro = 1289583905;
       reeder = 1529448980;
