@@ -54,6 +54,7 @@
       Photomator = 1444636541;
       pixelmatorpro = 1289583905;
       reeder = 1529448980;
+      Slack = 803453959;
       Structured = 1499198946;
       things = 904280696;
       testflight = 899247664;
