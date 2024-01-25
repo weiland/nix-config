@@ -15,7 +15,7 @@
     brews = [ "nss" "openconnect" ];
 
     casks = [
-      "1password"
+      # "1password"
       "anki"
       "dash"
       "discord"
@@ -25,21 +25,21 @@
       "keyboard-cleaner"
       "jumpcut"
       # "lulu"
-      "mactracker"
+      # "mactracker"
       "obsidian"
       "sf-symbols"
       "spotify"
       "rectangle"
       "signal"
       "sublime-text"
-      "qgis"
+      # "qgis"
       "qlcolorcode"
       "qlimagesize"
       "qlmarkdown"
       "qlstephen"
       "quicklook-json"
       "tor-browser"
-      "ukelele"
+      # "ukelele"
       "utm"
     ];
 
@@ -49,7 +49,7 @@
       icebuddy = 1595947689;
       Ivory = 6444602274;
       mela = 1568924476;
-      MicrosoftOutlook = 985367838;
+      # MicrosoftOutlook = 985367838;
       # OnePassword7 = 1333542190;
       Photomator = 1444636541;
       pixelmatorpro = 1289583905;
@@ -57,7 +57,7 @@
       Structured = 1499198946;
       things = 904280696;
       testflight = 899247664;
-      Texifier = 458866234;
+      # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
       # WireGuard = 1451685025;
       xcode = 497799835;

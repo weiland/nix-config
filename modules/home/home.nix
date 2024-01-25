@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
 
   home = {
-    #     stateVersion = "23.05";
+    # stateVersion = "23.05"; # is inherited
 
     # TODO: get name from vars
-    username = "pw";
+    username = "weiland.p";
     homeDirectory = "/Users/${config.home.username}";
 
     # Files
@@ -27,7 +27,7 @@
 
     file.".local/bin" = {
       source = ../../data/bin;
-      #       recursive = true;
+      # recursive = true;
     };
 
     file.".ssh/allowed_signers".text = ''
