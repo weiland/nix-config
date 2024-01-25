@@ -8,9 +8,12 @@
 - nix-darwin
 - home-manager (via nix-darwin)
 - homebrew casks (via nix-darwin)
+- several dev-shells [WIP]
+
+## Defaults
 
 `Kare` ist the hostname of this mac device, named after [Susan Kare](https://en.wikipedia.org/wiki/Susan_Kare).
-My standard username is `pw`.
+My standard username is `pw`. All code will be placed in the `~/src/weiland/` directory.
 
 
 ## Installation
@@ -45,6 +48,9 @@ Now, _accept_ the _Xcode and SDK license_:
 sudo xcodebuild -license accept
 ```
 
+Note: You have to repeat this, after every Xcoee update via the App Store.
+
+
 And make sure Xcode runs:
 
 ```bash
@@ -63,18 +69,18 @@ mkdir ~/src/tests
 mkdir ~/src/go
 ```
 
-#### Clone *nix-config*
+#### Clone this *nix-config*
 
 On a new system, the file modes might be lost, and have to be fixed so the keys can be accessed:
 
 ```fish
-chmod 600 ~/Documents/Configs/ssh/.ssh/id_pw_hopper
+chmod 600 ~/Documents/Configs/ssh/id_pw
 ```
 
 Now we can clone. In order to prevent password propts and because there is no `~/.ssh` directory yet with key pairs, we start with a different key path:
 
 ```fish
-GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/.ssh/id_pw_hopper -o IdentitiesOnly=yes' git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
+GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/id_pw -o IdentitiesOnly=yes' git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
 
 # using ssh (with default key in ~/.ssh)
 git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
@@ -83,7 +89,7 @@ git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
 git clone https://github.com/weiland/nix-config.git ~/src/weiland/nix-config
 ```
 
-And now *cd* into the newly cloned directory:
+And now *cd* into the newly cloned `nix-config` directory:
 
 	$ cd ~/src/weiland/nix-config
 
@@ -104,10 +110,18 @@ nix run nixpkgs#git
 </details>
 
 
-### Install nix
+### Install nix pac
+
+Via the official nix installer:
 
 ```bash
 sh <(curl -L https://nixos.org/nix/install)
+```
+
+Or using [The Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer), which performs well on mac (esp. after mac upgrades) and brings flake support by default:
+
+```command
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 <details>
@@ -217,12 +231,7 @@ and should be downloaded to `data/iterm/`.
 ```bash
 [ -e ~/Documents/Backups/fish_history ] && cp ~/Documents/Backups/fish_history ~/.local/share/fish/fish_history
 ```
-- Import recenttracks.txt
-
-
-### Finder
-
-Make sure Sidebar is correct and all file extensions are shown.
+- Import _recenttracks.txt_ (or if new `cp ~/Downloads/recenttracks-mo_ceol-1705683407.csv ~/.local/share/recenttracks.csv`)
 
 
 ### Internet Accounts / Mail
@@ -232,7 +241,6 @@ Login to email accounts.
 
 ### Firefox Dev
 
-
 Login to Firefox Sync.
 
 Adjust Toolbar.
@@ -241,15 +249,17 @@ Add missing extensions.
 
 Login to Container Extension.
 
+Apply DuckDuckGo Settings: https://duckduckgo.com/?kae=-1&k18=1&kaj=m&kak=-1&kao=-1&kap=-1&kaq=-1&kau=-1&kav=1&kax=-1&kp=-2
+
 
 ### Fantastical
 
-Login via Apple and add main calendar.
+Login via Apple and add main calendar account.
 
 
 ### Import files from other/old device
 
-#### via ssh and rsync
+via ssh and rsync:
 
 ```bash
 # copy with archive and compress option
@@ -259,9 +269,13 @@ rsync -avz -e ssh old@device.local:~/Downloads ~/Downloads
 rsync -avz -e ssh old@device.local:~/src ~/src --exclude node_modules
 ```
 
+Or use _Finder_ for external hard drives.
+
+
 ### Finder sidebar
 
-Adjust items in Finder sidebar.
+- Adjust items in Finder sidebar.
+- Make sure file extensions are shown.
 
 
 ### Login to `gh` cli
@@ -273,7 +287,8 @@ gh auth login
 
 ### Spotify
 
-Login.
+- Login.
+- Under _Display_ Preferences, disable _now-playing panel_
 
 
 ### Ivory
@@ -281,9 +296,22 @@ Login.
 login to all accounts (`vis.social`, `chaos.social` and `det.social`)
 
 
-### Enable disk encryption
+### Mela
 
-### Make first time machine backup
+Set the right _Calendar_ and _Reminders_.
+
+
+### Disk encryption
+
+System Settings -> Privacy & Security -> Turn On __FileVault__
+
+Also, make sure that __Find My Mac__ is enbaled under _Apple ID__ -> _iCloud_.
+
+
+### Time Machine
+
+- Make sure excluded paths are set (General -> Time Machine)
+- Plug in external hard drive and set the right volume
 
 
 ## Updates
@@ -309,10 +337,14 @@ nix run nixpkgs#nixfmt -- .
 
 ## Backup for a new machine
 
-- sync Firefox (on another device, i.e. Phone, Tablet other computer)
-- fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
-- zoxide history (optional)
-- export crontab `crontab -l`
-- commit all changes and push all branches of this repo
-- manually installed fonts
-- make a full time machine backup
+- [ ] __Downloads__ and __Desktop__ are empty
+- [ ] __Documents__ and __Photos__ are all synced (and uploaded)
+- [ ] sync Firefox (on another device, i.e. Phone, Tablet other computer) and Firefox Containers
+- [ ] backup fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
+- [ ] zoxide history (optional)
+- [ ] export crontab `crontab -l >> ~/Documents/Backups/crontab`
+- [ ] commit all changes and push all branches of this repo
+- [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv`
+- [ ] manually installed fonts (via _Font Book_)
+- [ ] make a full time machine backup
+- [ ] make sure everything in `~/src/` is committed and _all_ branches are pushed

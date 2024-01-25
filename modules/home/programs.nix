@@ -348,13 +348,12 @@
     ssh = {
       enable = true;
 
-      includes = [ "~/Documents/Configs/ssh/.ssh/private_ssh_config" ];
+      includes = [ "~/Documents/Configs/ssh/private_ssh_config" ];
 
       matchBlocks = {
         "*" = {
-          identityFile = "~/Documents/Configs/ssh/.ssh/id_pw_hopper";
+          identityFile = "~/Documents/Configs/ssh/id_pw";
           extraOptions = {
-            ChallengeResponseAuthentication = "no";
             HashKnownHosts = "yes";
             AddKeysToAgent = "yes";
             IgnoreUnknown = "UseKeychain";
