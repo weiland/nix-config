@@ -282,7 +282,21 @@ Or use _Finder_ for external hard drives.
 
 ```command
 gh auth login
+# choose ssh and login via browser
 ```
+
+
+### Element X
+
+- Download via Testflight
+- sign in an verify session
+
+
+### Messages
+
+Receive text messages on this mac device. On the iPhone:
+
+Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
 
 
 ### Spotify
@@ -294,6 +308,12 @@ gh auth login
 ### Ivory
 
 login to all accounts (`vis.social`, `chaos.social` and `det.social`)
+
+
+### Reeder
+
+- Open and sync.
+- Sort: Oldest first
 
 
 ### Mela
@@ -315,6 +335,8 @@ Also, make sure that __Find My Mac__ is enbaled under _Apple ID__ -> _iCloud_.
 
 
 ## Updates
+
+### Keeping nix and their friends up to date
 
 ```bash
 # in nix-config directory
