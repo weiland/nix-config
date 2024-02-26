@@ -26,20 +26,22 @@
 
     darwinConfigurations."M11X0076" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      modules =
-        [ home-manager.darwinModules.home-manager ./hosts/M11X0076/default.nix ];
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./hosts/M11X0076/default.nix
+      ];
     };
 
     homeConfigurations.M11X0076 = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules =
-        [ ./modules/home ./modules/neovim ];
-    };
-
-    homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
       modules = [ ./modules/home ./modules/neovim ];
     };
+
+    homeConfigurations.pw-standalone =
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        modules = [ ./modules/home ./modules/neovim ];
+      };
 
     # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
   };

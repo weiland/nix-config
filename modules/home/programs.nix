@@ -292,23 +292,17 @@
           pushInsteadOf = "https://github.com/";
         };
       };
-      ignores = [ ".DS_Store" ];
+      ignores = [ ".DS_Store" ".idea" ];
       includes = [
         {
           condition = "gitdir:~/Documents/Code/weiland";
           contents = {
-            user = {
-              email = "weiland@users.noreply.github.com";
-            };
+            user = { email = "weiland@users.noreply.github.com"; };
           };
         }
         {
           condition = "gitdir:~/Documents/Code/rp-online";
-          contents = {
-            user = {
-              email = "pascal.weiland@rp-digital.de";
-            };
-          };
+          contents = { user = { email = "pascal.weiland@rp-digital.de"; }; };
         }
       ];
       lfs.enable = true;

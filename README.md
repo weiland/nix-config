@@ -241,6 +241,15 @@ Open any other additional _itermcolors_-file.
 Other colorschemes for iterm can be found at: https://iterm2colorschemes.com
 and should be downloaded to `data/iterm/`.
 
+## Jumpcut
+
+- Open & allow
+
+
+### Rectangle
+
+- Open & allow & choose recommended
+
 
 ### Set up fish shell
 
@@ -258,7 +267,7 @@ and should be downloaded to `data/iterm/`.
 sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle  /Library/Keyboard\ Layouts/
 ```
 - [ ] restart mac 
-- [ ] System Settings -> 
+- [ ] System Settings -> Keyboard -> Input Sources -> Edit -> + -> Others
 
 ### Firefox Dev
 
@@ -272,15 +281,16 @@ sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle  /Library/
 
 ### Internet Accounts / Mail
 
-Login to email accounts and let them download.
+- [ ] Login to email accounts and let them download.
 
 
 ### Fantastical
 
-Login via Apple and add main calendar account.
-
+- Login via Apple 
+- add main calendar account.
 - turn off notification from other calendars
 - show calendar week numbers
+- uncheck _Go to today after adding items_ 🤯
 
 
 ### Import files from other/old device
@@ -295,7 +305,7 @@ rsync -avz -e ssh old@device.local:~/Downloads ~/Downloads
 rsync -avz -e ssh old@device.local:~/src ~/src --exclude node_modules
 ```
 
-Or use _Finder_ for external hard drives.
+Or use _Finder_ for external hard drives or _AirDrop_.
 
 
 ### Finder sidebar
@@ -320,11 +330,13 @@ gh auth login
 
 ### Messages
 
-Receive text messages on this mac device. On the iPhone:
-
-- Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
 - Edit -> Substitutions -> uncheck _Emoji Substitutions_
 - Start new messages from certain email (same goes for FaceTime)
+
+To receive text messages on this mac device. On the iPhone:
+
+- Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
+
 
 
 ### Spotify
@@ -336,7 +348,7 @@ Receive text messages on this mac device. On the iPhone:
 
 ### Ivory
 
-login to all accounts (`vis.social`, `chaos.social` and `det.social`)
+- login to all accounts (`vis.social`, `chaos.social` and `det.social`)
 
 
 ### Reeder
@@ -347,7 +359,12 @@ login to all accounts (`vis.social`, `chaos.social` and `det.social`)
 
 ### Mela
 
-Set the right _Calendar_ and _Reminders_.
+- Set the right _Calendar_ and _Reminders_.
+
+
+### Sublime Text
+
+- install Package Control
 
 
 ### Disk encryption
@@ -359,11 +376,9 @@ System Settings -> Privacy & Security -> Turn On __FileVault__
 Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
 
-### Time Machine
+### Hosts
 
-- Make sure excluded paths are set (General -> Time Machine)
-- Plug in external hard drive and set the right volume
-
+- import from https://someonewhocares.org/hosts/ to `/etc/hosts`
 
 ### Siri / Voice
 
@@ -372,6 +387,14 @@ Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 ### Wallpapers and Screensavers
 
 - choose nice ones
+
+
+## Wrapping up
+
+### Time Machine
+
+- Make sure excluded paths are set (General -> Time Machine)
+- Plug in external hard drive and set the right volume
 
 
 ## Testing and verification
