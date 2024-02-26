@@ -15,23 +15,24 @@
     brews = [ "nss" "openconnect" ];
 
     casks = [
-      # "1password"
+      "1password"
       "anki"
       "dash"
       "discord"
       "eloston-chromium"
       "firefox-developer-edition"
+      "intellij-idea"
       "iterm2"
       "keyboard-cleaner"
       "jumpcut"
       # "lulu"
-      # "mactracker"
+      # "mactracker" # takes too long
       "obsidian"
       "sf-symbols"
       "spotify"
       "rectangle"
       "signal"
-      "sublime-text"
+      # "sublime-text"
       # "qgis"
       "qlcolorcode"
       "qlimagesize"
@@ -41,27 +42,29 @@
       "tor-browser"
       # "ukelele"
       "utm"
+      "zed"
     ];
 
     masApps = {
-      ausweisapp = 948660805;
-      fantastical = 975937182;
-      icebuddy = 1595947689;
+      Ausweisapp = 948660805;
+      Fantastical = 975937182;
+      ICEBuddy = 1595947689;
       Ivory = 6444602274;
-      mela = 1568924476;
+      Mela = 1568924476;
       # MicrosoftOutlook = 985367838;
       # OnePassword7 = 1333542190;
       Photomator = 1444636541;
-      pixelmatorpro = 1289583905;
-      reeder = 1529448980;
-      Slack = 803453959;
+      PixelmatorPro = 1289583905;
+      Reeder = 1529448980;
+      # Slack = 803453959;
       Structured = 1499198946;
-      things = 904280696;
-      testflight = 899247664;
+      Things = 904280696;
+      TestFlight = 899247664;
+      # StuffItExpander = 919269455;
       # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
       # WireGuard = 1451685025;
-      xcode = 497799835;
+      XCode = 497799835;
     };
   };
 }

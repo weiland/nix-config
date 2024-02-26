@@ -295,20 +295,18 @@
       ignores = [ ".DS_Store" ];
       includes = [
         {
-          condition = "gitdir:~/src/weiland";
+          condition = "gitdir:~/Documents/Code/weiland";
           contents = {
             user = {
               email = "weiland@users.noreply.github.com";
-              # signingkey = "DCBE474CB9955FDD372FD3F1B924142E8F592971";
             };
           };
         }
         {
-          condition = "gitdir:~/src/rp-online";
+          condition = "gitdir:~/Documents/Code/rp-online";
           contents = {
             user = {
               email = "pascal.weiland@rp-digital.de";
-              # signingkey = "34562F25";
             };
           };
         }

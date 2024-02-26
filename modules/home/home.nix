@@ -4,7 +4,7 @@
     # stateVersion = "23.05"; # is inherited
 
     # TODO: get name from vars
-    username = "weiland.p";
+    # username = "pw";
     homeDirectory = "/Users/${config.home.username}";
 
     # Files

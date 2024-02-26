@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string></string>
+	<string>/etc/profiles/per-user/pw/bin/fish</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>MaterialOcean</key>
@@ -1362,7 +1362,7 @@
 			<key>Columns</key>
 			<integer>190</integer>
 			<key>Command</key>
-			<string>/etc/profiles/per-user/weiland.p/bin/fish</string>
+			<string>/etc/profiles/per-user/pw/bin/fish</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2552,6 +2552,8 @@
 			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string></string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>

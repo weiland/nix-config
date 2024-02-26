@@ -13,7 +13,7 @@
 ## Defaults
 
 `Kare` ist the hostname of this mac device, named after [Susan Kare](https://en.wikipedia.org/wiki/Susan_Kare).
-My standard username is `pw`. All code will be placed in the `~/src/weiland/` directory.
+My standard username is `pw`. All code will be placed in the `~/Documents/Code/weiland/` directory.
 
 
 ## Installation
@@ -23,15 +23,14 @@ My standard username is `pw`. All code will be placed in the `~/src/weiland/` di
 
 ### Setup machine
 
-Login in to iCloud and enbale Documents & Desktop Sync.
-
-Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
-
+1. Login in to iCloud 
+2. System Settings -> iCloud -> iCloud Drive: enable *Desktop & Documents Folders*.
+3. Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
 
 Making sure system is up to date:
 
 ```bash
-sudo softwareupdate -ia --verbose
+sudo softwareupdate --install --all --restart --verbose
 ```
 
 Install command line developer tools:
@@ -48,7 +47,7 @@ Now, _accept_ the _Xcode and SDK license_:
 sudo xcodebuild -license accept
 ```
 
-Note: You have to repeat this, after every Xcoee update via the App Store.
+Note: You have to repeat this, after every Xcode update via the App Store.
 
 
 And make sure Xcode runs:
@@ -63,10 +62,10 @@ Optionally, open **Xcode** and install _Platforms_ via the _Preferences_.
 Create code directory:
 
 ```bash
-mkdir -p ~/src/weiland
-mkdir ~/src/clones
-mkdir ~/src/tests
-mkdir ~/src/go
+mkdir -p ~/Documents/Code/weiland
+mkdir ~/Documents/Code/clones
+mkdir ~/Documents/Code/tests
+mkdir ~/Documents/Code/go
 ```
 
 #### Clone this *nix-config*
@@ -77,21 +76,21 @@ On a new system, the file modes might be lost, and have to be fixed so the keys 
 chmod 600 ~/Documents/Configs/ssh/id_pw
 ```
 
-Now we can clone. In order to prevent password propts and because there is no `~/.ssh` directory yet with key pairs, we start with a different key path:
+Now we can clone. In order to prevent password prompts and because there is no `~/.ssh` directory yet with key pairs, we start with a different key path:
 
 ```fish
-GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/id_pw -o IdentitiesOnly=yes' git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
+GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/id_pw -o IdentitiesOnly=yes' git clone git@github.com:weiland/nix-config.git ~/Documents/Code/weiland/nix-config
 
 # using ssh (with default key in ~/.ssh)
-git clone git@github.com:weiland/nix-config.git ~/src/weiland/nix-config
+git clone git@github.com:weiland/nix-config.git ~/Documents/Code/weiland/nix-config
 
 # or using default (i.e. login to GitHub)
-git clone https://github.com/weiland/nix-config.git ~/src/weiland/nix-config
+git clone https://github.com/weiland/nix-config.git ~/Documents/Code/weiland/nix-config
 ```
 
 And now *cd* into the newly cloned `nix-config` directory:
 
-	$ cd ~/src/weiland/nix-config
+	$ cd ~/Documents/Code/weiland/nix-config
 
 
 <details>
@@ -159,20 +158,16 @@ This will apply the nix-darwin config and the home-manager config, so all mac de
 
 ```bash
 # making sure to be in the right directory
-cd ~/src/weiland/nix-config
+cd ~/Documents/Code/weiland/nix-config
 ```
 
-The following commands will install the host `Kare`. Which can be replaced with any other hostname that is configured in `./hosts/`.
+The following commands will install the host `Hopper`. Which can be replaced with any other hostname that is configured in `./hosts/`.
 
 ```bash
-nix build --extra-experimental-features "nix-command flakes" .#darwinConfigurations.Kare.system 
-
-# this builds nix-darwin into ./result
-# ./result/sw/bin/darwin-rebuild switch --flake .#Kare
-# darwin-rebuild switch --flake .#Kare # or like this
-
-nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Kare
+nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Hopper
 ```
+
+You have to enter your *sudo* password (at least once, perhaps more often as longer it takes) and click on *Allow* when prompted.
 
 <details>
 <summary>Or if using flakes remotely:</summary>
@@ -182,20 +177,27 @@ nix flake --extra-experimental-features 'nix-command flakes' init -t github:weil
 ```
 </details>
 
-The next step is to restart the mac.
+The next step is to **restart** the mac:
+
+```bash
+sudo reboot
+```
 
 Now `nix-command` and `flakes` are enabled by default, so `--extra-experimental-features` can be omitted.
 
 
 ### Rebuild / Update
 
+Run again:
+
 ```bash
-nix run nix-darwin -- switch --flake .#Kare
+nix run nix-darwin -- switch --flake .#Hopper
 
 # for further times, one can use in any diectory:
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Kare
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
 ```
 
+(Perhaps Full Disk Access is required.)
 
 ## Finalisation
 
@@ -205,18 +207,19 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Kare
 
 1. Open iterm2
 2. General -> Preferences -> check *Load preferences from a custom folder or URL*
-3. choose `/Users/pw/src/weiland/nix-config/data/iterm`
+3. choose `/Users/pw/Documents/Code/weiland/nix-config/data/iterm`
 4. And don't overwrite the existing one.
 
-If no directory can be selected, iterm has no access to the hard dist. This can be fixed by open `System Settings` -> Privacy -> Hard Disk Access -> add _iterm2.app_.
+For Pre-Sonoma: If no directory can be selected, iterm has no access to the hard dist. This can be fixed by open `System Settings` -> Privacy & Security -> Hard Disk Access -> add _iterm2.app_.
 
+Generally, allow *Full Disk Access* for iTerm in System Settings -> Privacy & Security
 
-#### Use a new config
+#### Use a different colorscheme
 
 Set colorscheme:
 
 ```fish
-open ~/src/weiland/nix-config/data/iterm/Oceanic-Next.itermcolors
+open ~/Documents/Code/weiland/nix-config/data/iterm/Oceanic-Next.itermcolors
 ```
 
 Open any other additional _itermcolors_-file.
@@ -231,7 +234,7 @@ and should be downloaded to `data/iterm/`.
 ```bash
 [ -e ~/Documents/Backups/fish_history ] && cp ~/Documents/Backups/fish_history ~/.local/share/fish/fish_history
 ```
-- Import _recenttracks.txt_ (or if new `cp ~/Downloads/recenttracks-mo_ceol-1705683407.csv ~/.local/share/recenttracks.csv`)
+- Import _recenttracks.txt_ (or if new `mv ~/Downloads/recenttracks-mo_ceol-1*.csv ~/.local/share/recenttracks.csv`)
 
 
 ### Internet Accounts / Mail
@@ -343,7 +346,7 @@ Also, make sure that __Find My Mac__ is enbaled under _Apple ID__ -> _iCloud_.
 nix flake update
 
 # from somewhere else
-nix flake update --flake ~/src/weiland/nix-config
+nix flake update --flake ~/Documents/Code/weiland/nix-config
 ```
 
 
@@ -369,4 +372,4 @@ nix run nixpkgs#nixfmt -- .
 - [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv`
 - [ ] manually installed fonts (via _Font Book_)
 - [ ] make a full time machine backup
-- [ ] make sure everything in `~/src/` is committed and _all_ branches are pushed
+- [ ] make sure everything in `~/Documents/Code/` is committed and _all_ branches are pushed

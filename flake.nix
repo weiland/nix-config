@@ -12,6 +12,12 @@
 
   outputs = { self, nixpkgs, home-manager, nix-darwin }: {
 
+    darwinConfigurations."Hopper" = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules =
+        [ home-manager.darwinModules.home-manager ./hosts/Hopper/default.nix ];
+    };
+
     darwinConfigurations."Kare" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules =
