@@ -4,7 +4,7 @@
 
 ## Features
 
-- nix flakes (no other nix channels)
+- nix flakes
 - nix-darwin
 - home-manager (via nix-darwin)
 - homebrew casks (via nix-darwin)
@@ -27,7 +27,7 @@ My standard username is `pw`. All code will be placed in the `~/Documents/Code/w
 2. System Settings -> iCloud -> iCloud Drive: enable *Desktop & Documents Folders*.
 3. Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
 
-Making sure system is up to date:
+Making sure system is up-to-date:
 
 ```bash
 sudo softwareupdate --install --all --restart --verbose
@@ -80,13 +80,19 @@ Now we can clone. In order to prevent password prompts and because there is no `
 
 ```fish
 GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/id_pw -o IdentitiesOnly=yes' git clone git@github.com:weiland/nix-config.git ~/Documents/Code/weiland/nix-config
+```
 
+<details>
+<summary>other ways</summary>
+
+```fish
 # using ssh (with default key in ~/.ssh)
 git clone git@github.com:weiland/nix-config.git ~/Documents/Code/weiland/nix-config
 
 # or using default (i.e. login to GitHub)
 git clone https://github.com/weiland/nix-config.git ~/Documents/Code/weiland/nix-config
 ```
+</details>
 
 And now *cd* into the newly cloned `nix-config` directory:
 
@@ -117,14 +123,14 @@ Via the official nix installer:
 sh <(curl -L https://nixos.org/nix/install)
 ```
 
+<details>
+<summary>Determinate / fish installation</summary>
+
 Or using [The Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer), which performs well on mac (esp. after mac upgrades) and brings flake support by default:
 
 ```command
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
-
-<details>
-<summary>or if using a fish shell</summary>
 
 ```fish
 sh (curl -L https://nixos.org/nix/install | psub)
@@ -133,7 +139,9 @@ sh (curl -L https://nixos.org/nix/install | psub)
 </details>
 
 <details>
-<summary>### Optionally enable _flakes_ and `nix-command`</summary>
+<summary>Enable flakes via config file</summary>
+
+Not needed when using my home-manager config (or the Determinate Nix installer).
 
 ```bash
 mkdir -p ~/.config/nix
@@ -150,6 +158,8 @@ Which is controlled via *nix-darwin* later, but can also be used independently.
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+The `brew` command will ba available later after applying the home-manager settings.
 
 
 ### Install mac with nix-darwin
@@ -169,8 +179,12 @@ nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch 
 
 You have to enter your *sudo* password (at least once, perhaps more often as longer it takes) and click on *Allow* when prompted.
 
+After that the `--extra-experimental-features` flag won't be needed any longer.
+
 <details>
 <summary>Or if using flakes remotely:</summary>
+
+TODO(weiland): Fix command below
 
 ```bash
 nix flake --extra-experimental-features 'nix-command flakes' init -t github:weiland/nix-config#darwin
@@ -193,7 +207,7 @@ Run again:
 ```bash
 nix run nix-darwin -- switch --flake .#Hopper
 
-# for further times, one can use in any diectory:
+# for further times, one can use in any directory:
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
 ```
 
@@ -230,34 +244,43 @@ and should be downloaded to `data/iterm/`.
 
 ### Set up fish shell
 
-- Copy old fish history
+- Import old fish history
 ```bash
 [ -e ~/Documents/Backups/fish_history ] && cp ~/Documents/Backups/fish_history ~/.local/share/fish/fish_history
 ```
 - Import _recenttracks.txt_ (or if new `mv ~/Downloads/recenttracks-mo_ceol-1*.csv ~/.local/share/recenttracks.csv`)
 
 
-### Internet Accounts / Mail
+### Import English Keyboard Layout with Umlauts
 
-Login to email accounts.
-
+- [ ] import keyboard layout
+```fish
+sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle  /Library/Keyboard\ Layouts/
+```
+- [ ] restart mac 
+- [ ] System Settings -> 
 
 ### Firefox Dev
 
-Login to Firefox Sync.
+- Login to Firefox Sync.
+- Adjust Toolbar (remove spaces and unused icons)
+- Add missing extensions.
+- Login to Container Extension.
+- Set DDG as default search engine
+- Apply DuckDuckGo Settings: https://duckduckgo.com/?kae=-1&k18=1&kaj=m&kak=-1&kao=-1&kap=-1&kaq=-1&kau=-1&kav=1&kax=-1&kp=-2
 
-Adjust Toolbar.
 
-Add missing extensions.
+### Internet Accounts / Mail
 
-Login to Container Extension.
-
-Apply DuckDuckGo Settings: https://duckduckgo.com/?kae=-1&k18=1&kaj=m&kak=-1&kao=-1&kap=-1&kaq=-1&kau=-1&kav=1&kax=-1&kp=-2
+Login to email accounts and let them download.
 
 
 ### Fantastical
 
 Login via Apple and add main calendar account.
+
+- turn off notification from other calendars
+- show calendar week numbers
 
 
 ### Import files from other/old device
@@ -299,13 +322,16 @@ gh auth login
 
 Receive text messages on this mac device. On the iPhone:
 
-Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
+- Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
+- Edit -> Substitutions -> uncheck _Emoji Substitutions_
+- Start new messages from certain email (same goes for FaceTime)
 
 
 ### Spotify
 
 - Login.
 - Under _Display_ Preferences, disable _now-playing panel_
+- Disable the Song change notifications
 
 
 ### Ivory
@@ -326,9 +352,11 @@ Set the right _Calendar_ and _Reminders_.
 
 ### Disk encryption
 
-System Settings -> Privacy & Security -> Turn On __FileVault__
+> should be turned on by default
 
-Also, make sure that __Find My Mac__ is enbaled under _Apple ID__ -> _iCloud_.
+System Settings -> Privacy & Security -> Turn On __FileVault__ 
+
+Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
 
 ### Time Machine
@@ -336,6 +364,23 @@ Also, make sure that __Find My Mac__ is enbaled under _Apple ID__ -> _iCloud_.
 - Make sure excluded paths are set (General -> Time Machine)
 - Plug in external hard drive and set the right volume
 
+
+### Siri / Voice
+
+- download the good Siri Voices for VoiceOver etc (Dansk, Norsk, French, German and English)
+
+### Wallpapers and Screensavers
+
+- choose nice ones
+
+
+## Testing and verification
+
+- [ ] git user is correct
+- [ ] git commits work
+- [ ] git push via ssh work
+- [ ] system works after restart
+- [ ] fish is default shell in iTerm
 
 ## Updates
 
