@@ -4,28 +4,36 @@
 
 ## Features
 
-- nix flakes
+- nix with [nix flakes](https://nixos.wiki/wiki/Flakes)
 - nix-darwin
 - home-manager (via nix-darwin)
 - homebrew casks (via nix-darwin)
 - several dev-shells [WIP]
 
-## Defaults
+## Machines
 
-`Kare` ist the hostname of this mac device, named after [Susan Kare](https://en.wikipedia.org/wiki/Susan_Kare).
+| Host     | Hardware     | named after                                                |
+|----------|--------------|------------------------------------------------------------|
+| `Kare`   | Apple Laptop | [Susan Kare](https://en.wikipedia.org/wiki/Susan_Kare)     |
+| `Hopper` | Apple Laptop | [Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) |
+
 My standard username is `pw`. All code will be placed in the `~/Documents/Code/weiland/` directory.
-
+Previously, all my code was stored in `~/src/weiland`.
 
 ## Installation
 
 > on a freshly clean mac machine
 
-
 ### Setup machine
+
+#### iCloud
 
 1. Login in to iCloud 
 2. System Settings -> iCloud -> iCloud Drive: enable *Desktop & Documents Folders*.
 3. Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
+
+
+#### System Updates
 
 Making sure system is up-to-date:
 
@@ -33,12 +41,13 @@ Making sure system is up-to-date:
 sudo softwareupdate --install --all --restart --verbose
 ```
 
+#### Xcode and Developer Tools
+
 Install command line developer tools:
 
 ```bash
 xcode-select --install
 ```
-
 Then, install [**Xcode**](https://apps.apple.com/de/app/xcode/id497799835?mt=12&uo=4) from the App Store.
 
 Now, _accept_ the _Xcode and SDK license_:
@@ -47,17 +56,15 @@ Now, _accept_ the _Xcode and SDK license_:
 sudo xcodebuild -license accept
 ```
 
-Note: You have to repeat this, after every Xcode update via the App Store.
-
-
 And make sure Xcode runs:
 
 ```bash
 sudo xcodebuild -runFirstLaunch
 ```
 
-Optionally, open **Xcode** and install _Platforms_ via the _Preferences_.
+Open **Xcode** go to _Preferences_, open the _Platforms_ tab and download iOS and VisioOS Simulators.
 
+#### Code directories
 
 Create code directory:
 
@@ -83,7 +90,7 @@ GIT_SSH_COMMAND='ssh -i ~/Documents/Configs/ssh/id_pw -o IdentitiesOnly=yes' git
 ```
 
 <details>
-<summary>other ways</summary>
+<summary>other ways to clone (if ssh keys or GitHub are already setup):</summary>
 
 ```fish
 # using ssh (with default key in ~/.ssh)
@@ -94,11 +101,6 @@ git clone https://github.com/weiland/nix-config.git ~/Documents/Code/weiland/nix
 ```
 </details>
 
-And now *cd* into the newly cloned `nix-config` directory:
-
-	$ cd ~/Documents/Code/weiland/nix-config
-
-
 <details>
 <summary>If there is no git ...</summary>
 (which is supposed to be there actually with ventura/sonoma and installed xcode dev-tools)
@@ -106,16 +108,18 @@ And now *cd* into the newly cloned `nix-config` directory:
 You can follow the next step and install **nix** and then you can create a nix shell with `git` installed temporarely:
 
 ```bash
-nix-env -iA nixpkgs.git
-
-# or via nix flakes
 nix run nixpkgs#git
-```
 
+# or via old nix-env command
+nix-env -iA nixpkgs.git
+```
 </details>
 
+And now *cd* into the newly cloned `nix-config` directory:
 
-### Install nix pac
+	$ cd ~/Documents/Code/weiland/nix-config
+
+### Install nix package manager
 
 Via the official nix installer:
 
@@ -124,13 +128,15 @@ sh <(curl -L https://nixos.org/nix/install)
 ```
 
 <details>
-<summary>Determinate / fish installation</summary>
+<summary>Or using Determinate Nix Install / fish shell installation</summary>
 
 Or using [The Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer), which performs well on mac (esp. after mac upgrades) and brings flake support by default:
 
 ```command
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
+
+If already in the fish shell:
 
 ```fish
 sh (curl -L https://nixos.org/nix/install | psub)
@@ -150,17 +156,16 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
 </details>
 
-
 ### Install Homebrew 
 
-Which is controlled via *nix-darwin* later, but can also be used independently.
+It can run independently but is later controlled via _nix-darwin_.
+
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 The `brew` command will ba available later after applying the home-manager settings.
-
 
 ### Install mac with nix-darwin
 
@@ -171,15 +176,13 @@ This will apply the nix-darwin config and the home-manager config, so all mac de
 cd ~/Documents/Code/weiland/nix-config
 ```
 
-The following commands will install the host `Hopper`. Which can be replaced with any other hostname that is configured in `./hosts/`.
+The following commands will install the host `Hopper`. Which can be replaced with any other hostname that exists in the `./hosts/` directory.
 
 ```bash
 nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Hopper
 ```
 
 You have to enter your *sudo* password (at least once, perhaps more often as longer it takes) and click on *Allow* when prompted.
-
-After that the `--extra-experimental-features` flag won't be needed any longer.
 
 <details>
 <summary>Or if using flakes remotely:</summary>
@@ -200,7 +203,7 @@ sudo reboot
 Now `nix-command` and `flakes` are enabled by default, so `--extra-experimental-features` can be omitted.
 
 
-### Rebuild / Update
+### Update / Rebuild
 
 Run again:
 
@@ -211,9 +214,9 @@ nix run nix-darwin -- switch --flake .#Hopper
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
 ```
 
-(Perhaps Full Disk Access is required.)
+(Perhaps Full Disk Access is required. Enabled it in the _Privacy & Security_ System Settings for the current Terminal.)
 
-## Finalisation
+## Finalisation / App Preferences
 
 ### iterm
 
@@ -224,10 +227,16 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
 3. choose `/Users/pw/Documents/Code/weiland/nix-config/data/iterm`
 4. And don't overwrite the existing one.
 
-For Pre-Sonoma: If no directory can be selected, iterm has no access to the hard dist. This can be fixed by open `System Settings` -> Privacy & Security -> Hard Disk Access -> add _iterm2.app_.
+- [ ] Generally, allow *Full Disk Access* for iTerm in System Settings -> Privacy & Security
 
-Generally, allow *Full Disk Access* for iTerm in System Settings -> Privacy & Security
+<details>
+<summary>For pre Sonoma:</summary>
+If no directory can be selected, iterm has no access to the hard disk.
+This can be fixed by open `System Settings` -> Privacy & Security -> Hard Disk Access -> add _iterm2.app_.
+</details>
 
+<details>
+<summary>Import a new colorscheme</summary>
 #### Use a different colorscheme
 
 Set colorscheme:
@@ -240,58 +249,134 @@ Open any other additional _itermcolors_-file.
 
 Other colorschemes for iterm can be found at: https://iterm2colorschemes.com
 and should be downloaded to `data/iterm/`.
+</details>
 
-## Jumpcut
+### Jumpcut
 
-- Open & allow
-
+- [ ] Open & allow access (in _Privacy & Security_)
 
 ### Rectangle
 
-- Open & allow & choose recommended
+- [ ] Open & allow access (in _Privacy & Security_) & choose recommended
+
+### Trackpad
+
+- [ ] Set _Tracking Speed_ to _Fast_
+
+### Desktop & Dock
+
+- [ ] _Click Wallpaper to reveal desktop_ to _Only in Stage Manager_
 
 
 ### Set up fish shell
 
-- Import old fish history
+- [ ] Import old fish history
 ```bash
 [ -e ~/Documents/Backups/fish_history ] && cp ~/Documents/Backups/fish_history ~/.local/share/fish/fish_history
 ```
-- Import _recenttracks.txt_ (or if new `mv ~/Downloads/recenttracks-mo_ceol-1*.csv ~/.local/share/recenttracks.csv`)
-
+- [ ] Import _recenttracks.txt_ (or if new `mv ~/Downloads/recenttracks-*.csv ~/.local/share/recenttracks.csv`)
+- [ ] Optionally: import z history file as well (for the same host) `~/Library/Application\ Support/zoxide/db.zo`
 
 ### Import English Keyboard Layout with Umlauts
 
 - [ ] import keyboard layout
 ```fish
-sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle  /Library/Keyboard\ Layouts/
+sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle /Library/Keyboard\ Layouts/
 ```
 - [ ] restart mac 
 - [ ] System Settings -> Keyboard -> Input Sources -> Edit -> + -> Others
 
-### Firefox Dev
+### 1Password
 
-- Login to Firefox Sync.
-- Adjust Toolbar (remove spaces and unused icons)
-- Add missing extensions.
-- Login to Container Extension.
-- Set DDG as default search engine
-- Apply DuckDuckGo Settings: https://duckduckgo.com/?kae=-1&k18=1&kaj=m&kak=-1&kao=-1&kap=-1&kaq=-1&kau=-1&kav=1&kax=-1&kp=-2
+- [ ] Allow Accessibility Settings (required for FF Browser extension to work)
 
+### Firefox Developer Edition
+
+- [ ] Login to Firefox Sync.
+- [ ] Adjust Toolbar (remove spaces and unused icons)
+- [ ] Login to Container Extension.
+- [ ] Set DDG as default search engine
+- [ ] Apply DuckDuckGo Settings: https://duckduckgo.com/?kae=-1&k18=1&kaj=m&kak=-1&kao=-1&kap=-1&kaq=-1&kau=-1&kav=1&kax=-1&kp=-2
 
 ### Internet Accounts / Mail
 
-- [ ] Login to email accounts and let them download.
-
+- [ ] Login to email accounts
 
 ### Fantastical
 
-- Login via Apple 
-- add main calendar account.
-- turn off notification from other calendars
-- show calendar week numbers
-- uncheck _Go to today after adding items_ 🤯
+- [ ] Login via Apple 
+- [ ] add main calendar account.
+- [ ] turn off notification from other calendars
+- [ ] show calendar week numbers
+- [ ] uncheck _Go to today after adding items_ in Advanced Settings 🤯
 
+### Finder sidebar
+
+- [ ] Adjust items in Finder sidebar.
+- [ ] Make sure file extensions are shown.
+
+### Login to `gh` cli
+
+- [ ] `gh auth login` choose GitHub.com, ssh and login via browser
+
+### Element X
+
+- [ ] Download via Testflight
+- [ ] Sign in an verify session
+
+### Messages
+
+- [ ] Edit -> Substitutions -> uncheck _Emoji Substitutions_
+- [ ] Start new messages from certain email (same goes for _FaceTime_)
+
+<details>
+<summary>To receive text messages on this mac device.</summary>
+On the iPhone:
+- Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
+</details>
+
+### Signal (Beta)
+
+- Login & sync
+
+### Telegram
+
+- Login
+
+### Spotify
+
+- [ ] Login.
+- [ ] Under _Display_ Preferences, disable _now-playing panel_
+- [ ] Disable the Song change notifications
+
+### Ivory
+
+- [ ] login to all accounts (`vis.social`, `chaos.social` and `det.social`)
+
+### Reeder
+
+- [ ] Login and sync.
+- [ ] Sort: Oldest first
+
+### Mela
+
+- [ ] Set the right _Calendar_ and _Reminders_.
+
+### Sublime Text
+
+- [ ] Install Package Control
+
+### Hosts
+
+- import from https://someonewhocares.org/hosts/ to `/etc/hosts`
+
+### Siri / Voice
+
+- download the good Siri Voices for VoiceOver etc (Dansk, Norsk, French, German and English)
+
+### Wallpapers and Screensavers
+
+- choose nice ones
 
 ### Import files from other/old device
 
@@ -308,88 +393,16 @@ rsync -avz -e ssh old@device.local:~/src ~/src --exclude node_modules
 Or use _Finder_ for external hard drives or _AirDrop_.
 
 
-### Finder sidebar
-
-- Adjust items in Finder sidebar.
-- Make sure file extensions are shown.
-
-
-### Login to `gh` cli
-
-```command
-gh auth login
-# choose ssh and login via browser
-```
-
-
-### Element X
-
-- Download via Testflight
-- sign in an verify session
-
-
-### Messages
-
-- Edit -> Substitutions -> uncheck _Emoji Substitutions_
-- Start new messages from certain email (same goes for FaceTime)
-
-To receive text messages on this mac device. On the iPhone:
-
-- Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
-
-
-
-### Spotify
-
-- Login.
-- Under _Display_ Preferences, disable _now-playing panel_
-- Disable the Song change notifications
-
-
-### Ivory
-
-- login to all accounts (`vis.social`, `chaos.social` and `det.social`)
-
-
-### Reeder
-
-- Open and sync.
-- Sort: Oldest first
-
-
-### Mela
-
-- Set the right _Calendar_ and _Reminders_.
-
-
-### Sublime Text
-
-- install Package Control
-
+## Wrapping up
 
 ### Disk encryption
 
 > should be turned on by default
 
-System Settings -> Privacy & Security -> Turn On __FileVault__ 
+System Settings -> Privacy & Security -> Turn On __FileVault__
 
 Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
-
-### Hosts
-
-- import from https://someonewhocares.org/hosts/ to `/etc/hosts`
-
-### Siri / Voice
-
-- download the good Siri Voices for VoiceOver etc (Dansk, Norsk, French, German and English)
-
-### Wallpapers and Screensavers
-
-- choose nice ones
-
-
-## Wrapping up
 
 ### Time Machine
 

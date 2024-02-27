@@ -31,7 +31,7 @@
       "sf-symbols"
       "spotify"
       "rectangle"
-      "signal"
+      "signal-beta"
       "sublime-text"
       # "qgis"
       "qlcolorcode"
@@ -59,6 +59,7 @@
       Reeder = 1529448980;
       # Slack = 803453959;
       Structured = 1499198946;
+      Telegram = 747648890;
       Things = 904280696;
       TestFlight = 899247664;
       StuffItExpander = 919269455;
