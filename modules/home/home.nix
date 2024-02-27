@@ -111,6 +111,8 @@
 
   };
 
+  xdg.enable = true;
+
   # prevents errors
   manual.manpages.enable = false;
 }

@@ -6,7 +6,7 @@
 
 - nix with [nix flakes](https://nixos.wiki/wiki/Flakes)
 - nix-darwin
-- home-manager (via nix-darwin)
+- home-manager (via nix-darwin but could work as standalone too)
 - homebrew casks (via nix-darwin)
 - several dev-shells [WIP]
 
@@ -28,10 +28,11 @@ Previously, all my code was stored in `~/src/weiland`.
 
 #### iCloud
 
+During Setup:
+
 1. Login in to iCloud 
 2. System Settings -> iCloud -> iCloud Drive: enable *Desktop & Documents Folders*.
-3. Disable *Optimize Mac Storage* for Documents (and later Photos), so all data will be downloaded.
-
+3. Disable *Optimize Mac Storage* for Documents (and later in Photos, too), so all data will be downloaded.
 
 #### System Updates
 
@@ -267,7 +268,6 @@ and should be downloaded to `data/iterm/`.
 
 - [ ] _Click Wallpaper to reveal desktop_ to _Only in Stage Manager_
 
-
 ### Set up fish shell
 
 - [ ] Import old fish history
@@ -304,25 +304,17 @@ sudo cp -r data/keyboard_layout/ABC\ Extended\ German\ Umlauts.bundle /Library/K
 
 ### Fantastical
 
-- [ ] Login via Apple 
+- [ ] Login via Apple (try a few times)
 - [ ] add main calendar account.
 - [ ] turn off notification from other calendars
 - [ ] show calendar week numbers
 - [ ] uncheck _Go to today after adding items_ in Advanced Settings 🤯
 
-### Finder sidebar
+### Finder Sidebar
 
-- [ ] Adjust items in Finder sidebar.
-- [ ] Make sure file extensions are shown.
-
-### Login to `gh` cli
-
-- [ ] `gh auth login` choose GitHub.com, ssh and login via browser
-
-### Element X
-
-- [ ] Download via Testflight
-- [ ] Sign in an verify session
+- [ ] Adjust items in Finder sidebar to: Recents, Documents, Applications, Downloads, home, TU Darmstadt
+- [ ] hide tags
+- [ ] Make sure filename extensions are shown.
 
 ### Messages
 
@@ -335,52 +327,51 @@ On the iPhone:
 - Settings -> Messages -> Text Message Forwarding -> _Enable_ this Mac
 </details>
 
-### Signal (Beta)
+### Other apps
 
-- Login & sync
-
-### Telegram
-
-- Login
-
-### Spotify
-
-- [ ] Login.
-- [ ] Under _Display_ Preferences, disable _now-playing panel_
-- [ ] Disable the Song change notifications
-
-### Ivory
-
-- [ ] login to all accounts (`vis.social`, `chaos.social` and `det.social`)
-
-### Reeder
-
-- [ ] Login and sync.
-- [ ] Sort: Oldest first
-
-### Mela
-
-- [ ] Set the right _Calendar_ and _Reminders_.
-
-### Sublime Text
-
-- [ ] Install Package Control
+- [ ] **TestFlight**: Download *Element X*
+- [ ] **Element X**: Login to matrix account & verify session
+- [ ] **gh cli**: `gh auth login`: choose GitHub.com, ssh and login via browser
+- [ ] **Signal Beta**: Login & sync
+- [ ] **Telegram**: Login
+- [ ] **Discord**: Login
+- [ ] **Tealdeer**: Update cache `tldr --update`
+- [ ] **Ivory**: login to all accounts (`vis.social`, `chaos.social` and `det.social`)
+- [ ] **Reeder**: _Login_ and _sync_ and __Sort__: Oldest first
+- [ ] **Mela**: Set the right _Calendar_ and _Reminders_.
+- [ ] **Dash**: Download Elixir, Vue, Swift and Node docs
+- [ ] **Sublime Text**: Tools -> Install Package Control
+- [ ] **Outlook**: Login and set Trans Pride Theme
+- [ ] **Slack**: Login
+- [ ] **Discord**: Login
+- [ ] **Spotify**: Under _Display_ Preferences, disable _now-playing panel_
+- [ ] **Spotify**: Disable the Song change notifications
 
 ### Hosts
 
-- import from https://someonewhocares.org/hosts/ to `/etc/hosts`
+- [ ] import from https://someonewhocares.org/hosts/ to `/etc/hosts`
 
 ### Siri / Voice
 
-- download the good Siri Voices for VoiceOver etc (Dansk, Norsk, French, German and English)
+- [ ] Download the good Siri Voices for VoiceOver etc (Dansk, Norsk, French, German and English)
 
 ### Wallpapers and Screensavers
 
-- choose nice ones
+- [ ] Choose nice views
+
+### Uninstall unused apps
+
+- [ ] Remove GarageBand and iMovie
+- [ ] System Settings -> General -> Storage -> Remove Audio lib (from Garage Band)
+
+### Apple Wallet
+
+- [ ] set up cards, address and hide email
 
 ### Import files from other/old device
 
-via ssh and rsync:
+<details>
+<summary>via ssh using rsync:</summary>
 
 ```bash
 # copy with archive and compress option
@@ -391,7 +382,7 @@ rsync -avz -e ssh old@device.local:~/src ~/src --exclude node_modules
 ```
 
 Or use _Finder_ for external hard drives or _AirDrop_.
-
+</details>
 
 ## Wrapping up
 
@@ -399,10 +390,9 @@ Or use _Finder_ for external hard drives or _AirDrop_.
 
 > should be turned on by default
 
-System Settings -> Privacy & Security -> Turn On __FileVault__
+- [ ] System Settings -> Privacy & Security -> Turn On __FileVault__
 
-Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
-
+- [ ] Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
 ### Time Machine
 
@@ -412,11 +402,11 @@ Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
 ## Testing and verification
 
+- [ ] system works after restart
+- [ ] fish is default shell in iTerm
 - [ ] git user is correct
 - [ ] git commits work
 - [ ] git push via ssh work
-- [ ] system works after restart
-- [ ] fish is default shell in iTerm
 
 ## Updates
 
@@ -429,7 +419,6 @@ nix flake update
 # from somewhere else
 nix flake update --flake ~/Documents/Code/weiland/nix-config
 ```
-
 
 ## Housekeeping
 
@@ -447,10 +436,9 @@ nix run nixpkgs#nixfmt -- .
 - [ ] __Documents__ and __Photos__ are all synced (and uploaded)
 - [ ] sync Firefox (on another device, i.e. Phone, Tablet other computer) and Firefox Containers
 - [ ] backup fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
-- [ ] zoxide history (optional)
+- [ ] zoxide history (optional) `cp ~/Library/Application\ Support/zoxide/db.zo ~/Documents/Backups`
 - [ ] export crontab `crontab -l >> ~/Documents/Backups/crontab`
-- [ ] commit all changes and push all branches of this repo
 - [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv`
 - [ ] manually installed fonts (via _Font Book_)
 - [ ] make a full time machine backup
-- [ ] make sure everything in `~/Documents/Code/` is committed and _all_ branches are pushed
+- [ ] make sure everything in `~/Documents/Code/` is committed and _all_ branches are pushed (including this `nix-config` repo)

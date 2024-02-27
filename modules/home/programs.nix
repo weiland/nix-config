@@ -89,6 +89,7 @@
         "...." = "../../..";
         "....." = "../../../..";
         cat = "bat";
+        ndsh = "nix run nix-darwin -- switch --flake .~/Documents/Code/weiland/nix-config#Hopper";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
@@ -107,8 +108,6 @@
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hme = "cd ~/src/weiland/dotfiles/ && nvim config/home/default.nix";
-        hmel = "nvim ~/src/weiland/dotfiles/config/home/default.nix";
         hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
