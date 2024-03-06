@@ -28,6 +28,7 @@
       # "lulu"
       # "mactracker" # takes too long
       "obsidian"
+      "homebrew/cask-versions/safari-technology-preview"
       "sf-symbols"
       "spotify"
       "rectangle"
@@ -57,7 +58,7 @@
       Photomator = 1444636541;
       PixelmatorPro = 1289583905;
       Reeder = 1529448980;
-      # Slack = 803453959;
+      Slack = 803453959;
       Structured = 1499198946;
       Telegram = 747648890;
       Things = 904280696;
@@ -65,7 +66,7 @@
       StuffItExpander = 919269455;
       # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
-      # WireGuard = 1451685025;
+      WireGuard = 1451685025;
       XCode = 497799835;
     };
   };

@@ -70,7 +70,7 @@
       stow
       # swift-format # is not yet version 5.9
       tealdeer
-      # terminal-notifier # requires rosetta (and is rather old)
+      terminal-notifier # requires rosetta (and is rather old)
       tig
       tree-sitter
       wifi-password
