@@ -26,7 +26,7 @@
       "keyboard-cleaner"
       "jumpcut"
       # "lulu"
-      # "mactracker" # takes too long
+      "mactracker" # takes too long
       "obsidian"
       "homebrew/cask-versions/safari-technology-preview"
       "sf-symbols"
@@ -63,7 +63,7 @@
       Telegram = 747648890;
       Things = 904280696;
       TestFlight = 899247664;
-      StuffItExpander = 919269455;
+      # StuffItExpander = 919269455;
       # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
       WireGuard = 1451685025;
