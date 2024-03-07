@@ -89,7 +89,8 @@
         "...." = "../../..";
         "....." = "../../../..";
         cat = "bat";
-        ndsh = "nix run nix-darwin -- switch --flake .~/Documents/Code/weiland/nix-config#Hopper";
+        ndsh =
+          "nix run nix-darwin -- switch --flake .~/Documents/Code/weiland/nix-config#Hopper";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
