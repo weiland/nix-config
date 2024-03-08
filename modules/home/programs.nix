@@ -260,6 +260,7 @@
         };
         credential.helper = "osxkeychain";
         color = { ui = true; };
+        diff.algorithm = "histogram";
         difftool.prompt = false;
         gpg = {
           format = "ssh";
@@ -268,15 +269,19 @@
         help = { autocorrect = "prompt"; };
         merge = {
           log = true;
-          # conflictStyle = "diff3";
+          conflictStyle = "zdiff3";
         };
         push = {
           default = "current";
-          autoSetupRemote = true;
+          # autoSetupRemote = true; # not required if default is "current"
         };
         pull = {
           ff = "only";
           default = "current";
+        };
+        rebase = {
+          autosquash = true;
+          autostash = true;
         };
         remote.origin = { prune = true; };
         rerere = { enabled = 1; };
