@@ -65,6 +65,15 @@ sudo xcodebuild -runFirstLaunch
 
 Open **Xcode** go to _Preferences_, open the _Platforms_ tab and download iOS and VisioOS Simulators.
 
+#### Install Rosetta
+
+Actually, I try to avoid it, but looking at you _AusweisApp.app_
+
+```fish
+softwareupdate –install-rosetta
+```
+
+
 #### Code directories
 
 Create code directory:
@@ -222,6 +231,12 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
 ### iterm
 
 #### re-use config from `data/iterm/`
+
+Set config:
+
+    $ defaults write com.googlecode.iterm2 PrefsCustomFolder "/Users/pw/Documents/Code/nix-config/data/iterm"
+
+Alternatively:
 
 1. Open iterm2
 2. General -> Preferences -> check *Load preferences from a custom folder or URL*
@@ -438,7 +453,9 @@ nix run nixpkgs#nixfmt -- .
 - [ ] backup fish history `cp ~/.local/share/fish/fish_history ~/Documents/Backups`
 - [ ] zoxide history (optional) `cp ~/Library/Application\ Support/zoxide/db.zo ~/Documents/Backups`
 - [ ] export crontab `crontab -l >> ~/Documents/Backups/crontab`
-- [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv`
+- [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv` (or download new one)
 - [ ] manually installed fonts (via _Font Book_)
+- [ ] PhotoBooth photos
+- [ ] optional: leftover Screenshots (in `~/tmp`)
 - [ ] make a full time machine backup
 - [ ] make sure everything in `~/Documents/Code/` is committed and _all_ branches are pushed (including this `nix-config` repo)

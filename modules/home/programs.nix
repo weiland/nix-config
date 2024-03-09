@@ -90,7 +90,7 @@
         "....." = "../../../..";
         cat = "bat";
         ndsh =
-          "nix run nix-darwin -- switch --flake .~/Documents/Code/weiland/nix-config#Hopper";
+          "nix run nix-darwin -- switch --flake .~/Documents/Code/nix-config#Hopper";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
@@ -109,7 +109,7 @@
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
+        hms = "home-manager switch --flake ~/Documents/Code/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
         ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
@@ -154,14 +154,14 @@
         k = {
           description = "Go to knowledge";
           body = ''
-            cd ~/src/weiland/knowledge
+            cd ~/Documents/Code/knowledge
             vim '+Telescope fd'
           '';
         };
         kk = {
           description = "Go to knowledge and livegrep";
           body = ''
-            cd ~/src/weiland/knowledge
+            cd ~/Documents/Code/knowledge
             vim '+Telescope live_grep'
           '';
         };
@@ -300,7 +300,13 @@
       ignores = [ ".DS_Store" ".idea" ];
       includes = [
         {
-          condition = "gitdir:~/Documents/Code/weiland";
+          condition = "gitdir:~/Documents/Code";
+          contents = {
+            user = { email = "weiland@users.noreply.github.com"; };
+          };
+        }
+        {
+          condition = "gitdir:~/src/weiland";
           contents = {
             user = { email = "weiland@users.noreply.github.com"; };
           };
