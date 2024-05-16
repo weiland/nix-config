@@ -46,6 +46,7 @@
       # "ukelele"
       "utm"
       "zed"
+      "zotero"
     ];
 
     masApps = {
