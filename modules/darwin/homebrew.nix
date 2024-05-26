@@ -40,7 +40,7 @@
       "sf-symbols"
       "spotify"
       "rectangle"
-      "signal-beta"
+      "signal"
       "sublime-text"
       "tor-browser"
       # "ukelele"
