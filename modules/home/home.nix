@@ -37,6 +37,7 @@
     # Packages
     packages = with pkgs; [
       any-nix-shell
+      bun
       commit-mono # font with ligatures
       curl
       colima
@@ -51,6 +52,7 @@
       git-open
       htop
       httpie
+      # iamb
       imagemagick
       jq
       # neovim # due to lua config trouble up here
@@ -59,16 +61,16 @@
       })
       nix-output-monitor
       nmap
-      nodejs_20
+      nodejs_22
       #openconnect # fails
-      #      pdfgrep
+      pdfgrep
       podman # trying out as docker replacement
       ripgrep
       rustup
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
       stow
-      # swift-format # is not yet version 5.9
+      # swift-format
       tealdeer
       terminal-notifier # requires rosetta (and is rather old)
       tig
@@ -78,7 +80,7 @@
       yt-dlp
 
       yarn-berry
-      #       nix # comes with nix-darwin
+      # nix # comes with nix-darwin
       nodePackages.serve
       nodePackages.pnpm
       # qgis # not on macos
