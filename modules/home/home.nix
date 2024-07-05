@@ -41,6 +41,7 @@
       commit-mono # font with ligatures
       curl
       colima
+      ddev
       deno
       #docker
       #docker-compose

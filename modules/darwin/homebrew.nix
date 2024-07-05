@@ -12,12 +12,13 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "ddev/ddev/ddev" "nss" "openconnect" ];
+    brews = [ "nss" "openconnect" "pkl" ];
 
     casks = [
       "1password"
       "1password-cli"
       "anki"
+      "arc"
       "dash"
       "discord"
       "eloston-chromium"
@@ -52,11 +53,13 @@
 
     masApps = {
       Ausweisapp = 948660805;
+      Bear = 1091189122;
       Fantastical = 975937182;
       ICEBuddy = 1595947689;
       Ivory = 6444602274;
       Mela = 1568924476;
       MicrosoftOutlook = 985367838;
+      MicrosoftPowerPoint = 462062816;
       MicrosoftWord = 462054704;
       # OnePassword7 = 1333542190; # replaced with version 8
       Photomator = 1444636541;
