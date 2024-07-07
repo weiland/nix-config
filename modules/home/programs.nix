@@ -6,7 +6,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "Nord";
+        theme = "Solarized (dark)";
         italic-text = "always";
       };
     };
@@ -250,7 +250,7 @@
         options = {
           navigate = true;
           line-numbers = true;
-          syntax-theme = "Nord";
+          syntax-theme = "Solarized (dark)";
         };
       };
       extraConfig = {

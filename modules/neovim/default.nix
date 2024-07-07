@@ -116,6 +116,7 @@ in {
         vim-unimpaired
 
         # Themes
+        catppuccin-nvim
         jellybeans-nvim
         lush-nvim # since jellybeans-nvim is built with this
         neovim-ayu
