@@ -55,6 +55,7 @@
       httpie
       # iamb
       imagemagick
+      iosevka
       jq
       # neovim # due to lua config trouble up here
       (nerdfonts.override {

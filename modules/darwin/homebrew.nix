@@ -12,7 +12,7 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "nss" "openconnect" "pkl" ];
+    brews = [ "nss" "openconnect" "pkl" "swift-format" ];
 
     casks = [
       "1password"
