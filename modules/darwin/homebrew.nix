@@ -22,7 +22,8 @@
       "dash"
       "discord"
       "eloston-chromium"
-      "firefox-developer-edition"
+      "firefox@developer-edition"
+      "google-chrome@dev"
       "homebrew/cask-versions/safari-technology-preview"
       "intellij-idea"
       "iterm2"
@@ -30,6 +31,8 @@
       "keyboard-cleaner"
       # "lulu"
       "mactracker" # takes too long
+      # "microsoft-edge@beta"
+      "mullvadvpn"
       "obsidian"
       "orbstack"
       # "qgis"
