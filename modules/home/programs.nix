@@ -366,9 +366,7 @@
         "y" = {
           "hostname" = "spahr.uberspace.de";
           "user" = "y";
-          extraOptions = {
-            SetEnv = "LC_ALL=C";
-          };
+          extraOptions = { SetEnv = "LC_ALL=C"; };
         };
       };
     };
