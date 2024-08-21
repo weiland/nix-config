@@ -42,6 +42,7 @@
       "qlmarkdown"
       "qlstephen"
       "quicklook-json"
+      "raycast"
       "rectangle"
       "sf-symbols"
       "spotify"
