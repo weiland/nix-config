@@ -62,6 +62,7 @@
       ICEBuddy = 1595947689;
       Ivory = 6444602274;
       Mela = 1568924476;
+      MicrosoftExcel = 462058435;
       MicrosoftOutlook = 985367838;
       MicrosoftPowerPoint = 462062816;
       MicrosoftWord = 462054704;
