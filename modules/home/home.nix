@@ -37,7 +37,7 @@
     # Packages
     packages = with pkgs; [
       any-nix-shell
-      bun
+      # bun # installed via Homebrew since it's more up to date
       commit-mono # font with ligatures
       curl
       colima
@@ -45,6 +45,7 @@
       deno
       #docker
       #docker-compose
+      elixir
       entr
       fd
       ffmpeg

@@ -8019,6 +8019,8 @@
 			<string>/Users/pw</string>
 		</dict>
 	</array>
+	<key>OnePasswordAccount</key>
+	<string></string>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>PointerActions</key>
@@ -8054,6 +8056,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>

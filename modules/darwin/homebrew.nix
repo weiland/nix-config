@@ -79,7 +79,7 @@
       # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
       WireGuard = 1451685025;
-      XCode = 497799835;
+      # XCode = 497799835; # commented out until release
     };
   };
 }
