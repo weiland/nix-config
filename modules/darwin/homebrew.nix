@@ -12,7 +12,7 @@
 
     taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
 
-    brews = [ "nss" "openconnect" "pkl" "swift-format" ];
+    brews = [ "nss" "openconnect" "oven-sh/bun/bun" "pkl" "swift-format" ];
 
     casks = [
       "1password"
@@ -23,6 +23,7 @@
       "discord"
       "eloston-chromium"
       "firefox@developer-edition"
+      # "git-town"
       "google-chrome@dev"
       "homebrew/cask-versions/safari-technology-preview"
       "intellij-idea"
@@ -49,8 +50,10 @@
       "signal"
       "sublime-text"
       "tor-browser"
+      # "typora"
       # "ukelele"
       "utm"
+      "vimr"
       "zed"
       "zotero"
     ];

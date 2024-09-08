@@ -38,6 +38,7 @@
     packages = with pkgs; [
       any-nix-shell
       # bun # installed via Homebrew since it's more up to date
+      cascadia-code
       commit-mono # font with ligatures
       curl
       colima
@@ -46,6 +47,7 @@
       #docker
       #docker-compose
       elixir
+      elixir_ls
       entr
       fd
       ffmpeg
