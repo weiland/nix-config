@@ -53,6 +53,7 @@
       ffmpeg
       # fira-code # comes already from the nerdfonts below
       # fzf
+      geist-font
       git-open
       htop
       httpie
