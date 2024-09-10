@@ -38,11 +38,11 @@
     packages = with pkgs; [
       any-nix-shell
       # bun # installed via Homebrew since it's more up to date
-      cascadia-code
-      commit-mono # font with ligatures
+      # commit-mono # font with ligatures
       curl
       colima
       ddev
+      departure-mono
       deno
       #docker
       #docker-compose
@@ -51,19 +51,19 @@
       entr
       fd
       ffmpeg
-      # fira-code # comes already from the nerdfonts below
       # fzf
-      geist-font
       git-open
       htop
       httpie
       # iamb
       imagemagick
-      iosevka
+      input-fonts
+      # iosevka
+      julia-mono
       jq
       # neovim # due to lua config trouble up here
       (nerdfonts.override {
-        fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" "Meslo" ];
+        fonts = [ "AnonymousPro" "CascadiaCode" "CommitMono" "FiraCode" "Hack" "Hasklig" "GeistMono" "Monaspace" "IBMPlexMono" "IntelOneMono" "Iosevka" "JetBrainsMono" "Meslo" "SourceCodePro" "ZedMono" ];
       })
       nix-output-monitor
       nmap

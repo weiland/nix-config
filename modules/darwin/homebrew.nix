@@ -10,7 +10,10 @@
       upgrade = true;
     };
 
-    taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" ];
+    taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" {
+      name = "zen-browser/browser";
+      clone_target = "https://github.com/zen-browser/desktop.git";
+    } ];
 
     brews = [ "nss" "openconnect" "oven-sh/bun/bun" "pkl" "swift-format" ];
 
@@ -26,6 +29,7 @@
       # "git-town"
       "google-chrome@dev"
       "homebrew/cask-versions/safari-technology-preview"
+      "iina"
       "intellij-idea"
       "iterm2"
       "jumpcut"
@@ -38,6 +42,7 @@
       "orbstack"
       # "qgis"
       "pitch"
+      "postgres-unofficial"
       "qlcolorcode"
       "qlimagesize"
       "qlmarkdown"
@@ -54,7 +59,9 @@
       # "ukelele"
       "utm"
       "vimr"
+      "visual-studio-code"
       "zed"
+      "zen-browser"
       "zotero"
     ];
 
