@@ -1,10 +1,18 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
-  imports = [ ./homebrew.nix ./system.nix ];
+  imports = [
+    ./homebrew.nix
+    ./system.nix
+  ];
 
   system.stateVersion = 4;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    # for input-fonts https://input.djr.com/
+    input-fonts.acceptLicense = true;
+  };
 
   time.timeZone = "Europe/Berlin";
 
@@ -38,8 +46,10 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   launchd.user.agents.SSH-ADD = {
-    serviceConfig.ProgramArguments =
-      [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
+    serviceConfig.ProgramArguments = [
+      "/usr/bin/ssh-add"
+      "--apple-load-keychain"
+    ];
     serviceConfig.RunAtLoad = true;
     serviceConfig.StandardErrorPath = "/var/log/ssh-add-err.log";
     serviceConfig.StandardOutPath = "/var/log/ssh-add-out.log";

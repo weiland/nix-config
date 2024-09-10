@@ -1,13 +1,24 @@
 {
   description = "Elixir development environment (atm mainly for macOS).";
 
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ ];
       systems = [ "aarch64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, ... }:
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
         let
           inherit (pkgs.lib) optional optionals;
           inherit (pkgs.stdenv) isDarwin;
@@ -25,19 +36,29 @@
           elixir-ls = beamPackages.elixir-ls;
 
           locales = pkgs.glibcLocales;
-        in {
+        in
+        {
           devShells.default = pkgs.mkShell {
             name = "elixir dev";
 
-            buildInputs = [ elixir elixir-ls locales ] ++ (with pkgs;
+            buildInputs =
               [
+                elixir
+                elixir-ls
+                locales
+              ]
+              ++ (with pkgs; [
                 # nodejs
-              ]) ++ optional pkgs.stdenv.isLinux pkgs.inotify-tools
-              ++ optional isDarwin pkgs.terminal-notifier ++ optionals isDarwin
-              (with pkgs.darwin.apple_sdk.frameworks; [
-                CoreFoundation
-                CoreServices
-              ]);
+              ])
+              ++ optional pkgs.stdenv.isLinux pkgs.inotify-tools
+              ++ optional isDarwin pkgs.terminal-notifier
+              ++ optionals isDarwin (
+                with pkgs.darwin.apple_sdk.frameworks;
+                [
+                  CoreFoundation
+                  CoreServices
+                ]
+              );
 
             shellHook = ''
               mkdir -p .nix-mix

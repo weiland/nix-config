@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   system = {
 
     activationScripts.postActivation.text = ''
@@ -21,8 +22,7 @@
 
     defaults = {
 
-      LaunchServices.LSQuarantine =
-        false; # disable quarantine for downloaded files
+      LaunchServices.LSQuarantine = false; # disable quarantine for downloaded files
 
       NSGlobalDomain = {
         _HIHideMenuBar = false;
@@ -108,7 +108,9 @@
           hideMenubarIcon = 1;
           launchOnLogin = 1;
         };
-        "com.flexibits.fantastical2.mac" = { WeeksPerQuarter = 12; };
+        "com.flexibits.fantastical2.mac" = {
+          WeeksPerQuarter = 12;
+        };
       };
 
       CustomSystemPreferences = {
@@ -158,7 +160,8 @@
           #   WebKit2DeveloperExtrasEnabled = true;
           # };
         };
-        "com.apple.desktopservices" = { # prevent .DS_Store creation.
+        "com.apple.desktopservices" = {
+          # prevent .DS_Store creation.
           DSDontWriteUSBStores = true;
           DSDontWriteNetworkStores = true;
         };
@@ -166,7 +169,9 @@
           # TODO: does not work?
           DateFormat = "EEE d H:mm";
         };
-        "com.apple.TimeMachine" = { DoNotOfferNewDisksForBackup = true; };
+        "com.apple.TimeMachine" = {
+          DoNotOfferNewDisksForBackup = true;
+        };
       };
     };
 

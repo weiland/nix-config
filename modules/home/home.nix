@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   home = {
     # stateVersion = "23.05"; # is inherited
@@ -63,7 +64,23 @@
       jq
       # neovim # due to lua config trouble up here
       (nerdfonts.override {
-        fonts = [ "AnonymousPro" "CascadiaCode" "CommitMono" "FiraCode" "Hack" "Hasklig" "GeistMono" "Monaspace" "IBMPlexMono" "IntelOneMono" "Iosevka" "JetBrainsMono" "Meslo" "SourceCodePro" "ZedMono" ];
+        fonts = [
+          "AnonymousPro"
+          "CascadiaCode"
+          "CommitMono"
+          "FiraCode"
+          "Hack"
+          "Hasklig"
+          "GeistMono"
+          "Monaspace"
+          "IBMPlexMono"
+          "IntelOneMono"
+          "Iosevka"
+          "JetBrainsMono"
+          "Meslo"
+          "SourceCodePro"
+          "ZedMono"
+        ];
       })
       nix-output-monitor
       nmap

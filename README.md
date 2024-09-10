@@ -442,7 +442,7 @@ nix flake update --flake ~/Documents/Code/weiland/nix-config
 Formatting nix files:
 
 ```bash
-nix run nixpkgs#nixfmt -- .
+nix fmt # using nixfmt-rfc-style
 ```
 
 ## Backup for a new machine
@@ -456,6 +456,7 @@ nix run nixpkgs#nixfmt -- .
 - [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv` (or download new one)
 - [ ] manually installed fonts (via _Font Book_)
 - [ ] PhotoBooth photos
+- [ ] VS Code settings and extensions
 - [ ] optional: leftover Screenshots (in `~/tmp`)
 - [ ] make a full time machine backup
 - [ ] make sure everything in `~/Documents/Code/` is committed and _all_ branches are pushed (including this `nix-config` repo)

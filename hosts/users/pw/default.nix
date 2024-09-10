@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   users.users.pw = {
     name = "pw";

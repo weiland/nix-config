@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs = {
     # TODO: disable next line? (since hm is controlled and invoked via nix-darwin)
     home-manager.enable = true;
@@ -17,7 +18,9 @@
     };
 
     # used to be exa
-    eza = { enable = true; };
+    eza = {
+      enable = true;
+    };
 
     fish = {
       enable = true;
@@ -64,8 +67,7 @@
       '';
       interactiveShellInit = "";
       shellAliases = {
-        afk =
-          "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
+        afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
         # cp = "cp -i";
         dl = "cd ~/Downloads";
         du = "du -hs";
@@ -79,8 +81,7 @@
         lock = "pmset sleepnow";
         nova = "open -a Nova";
         mkdir = "mkdir -p";
-        wifiname =
-          "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
+        wifiname = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
         ql = "qlmanage -p 2>/dev/null";
       };
 
@@ -89,8 +90,7 @@
         "...." = "../../..";
         "....." = "../../../..";
         cat = "bat";
-        ndsh =
-          "nix run nix-darwin -- switch --flake .~/Documents/Code/nix-config#Hopper";
+        ndsh = "nix run nix-darwin -- switch --flake .~/Documents/Code/nix-config#Hopper";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
@@ -197,8 +197,7 @@
           '';
         };
         data_left = {
-          description =
-            "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
+          description = "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
           body = ''
             curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container, .remaining-duration'
           '';
@@ -238,10 +237,8 @@
       userName = "Pascal Weiland";
       userEmail = "weiland@users.noreply.github.com";
       aliases = {
-        identity = ''
-          ! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
-        prettylog =
-          "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+        identity = ''! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
+        prettylog = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
         branches = "branch -a";
         remotes = "remote -v";
       };
@@ -259,14 +256,20 @@
           # pager = "less -F -X";
         };
         credential.helper = "osxkeychain";
-        color = { ui = true; };
+        color = {
+          ui = true;
+        };
         diff.algorithm = "histogram";
         difftool.prompt = false;
         gpg = {
           format = "ssh";
-          ssh = { allowedSignersFile = "~/.ssh/allowed_signers"; };
+          ssh = {
+            allowedSignersFile = "~/.ssh/allowed_signers";
+          };
         };
-        help = { autocorrect = "prompt"; };
+        help = {
+          autocorrect = "prompt";
+        };
         merge = {
           log = true;
           conflictStyle = "zdiff3";
@@ -283,43 +286,60 @@
           autosquash = true;
           autostash = true;
         };
-        remote.origin = { prune = true; };
-        rerere = { enabled = 1; };
-        status = { showUntrackedFiles = "normal"; };
-        init = { defaultBranch = "main"; };
+        remote.origin = {
+          prune = true;
+        };
+        rerere = {
+          enabled = 1;
+        };
+        status = {
+          showUntrackedFiles = "normal";
+        };
+        init = {
+          defaultBranch = "main";
+        };
         user.gmail = {
           email = "pasweiland@gmail.com";
-          signingkey =
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
+          signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         };
         url."git@github.com:" = {
           insteadOf = "https://github.com/";
           pushInsteadOf = "https://github.com/";
         };
       };
-      ignores = [ ".DS_Store" ".idea" ];
+      ignores = [
+        ".DS_Store"
+        ".idea"
+      ];
       includes = [
         {
           condition = "gitdir:~/Documents/Code";
           contents = {
-            user = { email = "weiland@users.noreply.github.com"; };
+            user = {
+              email = "weiland@users.noreply.github.com";
+            };
           };
         }
         {
           condition = "gitdir:~/src/weiland";
           contents = {
-            user = { email = "weiland@users.noreply.github.com"; };
+            user = {
+              email = "weiland@users.noreply.github.com";
+            };
           };
         }
         {
           condition = "gitdir:~/Documents/Code/rp-online";
-          contents = { user = { email = "pascal.weiland@rp-digital.de"; }; };
+          contents = {
+            user = {
+              email = "pascal.weiland@rp-digital.de";
+            };
+          };
         }
       ];
       lfs.enable = true;
       signing = {
-        key =
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         signByDefault = true;
       };
     };
@@ -366,7 +386,9 @@
         "y" = {
           "hostname" = "spahr.uberspace.de";
           "user" = "y";
-          extraOptions = { SetEnv = "LC_ALL=C"; };
+          extraOptions = {
+            SetEnv = "LC_ALL=C";
+          };
         };
       };
     };

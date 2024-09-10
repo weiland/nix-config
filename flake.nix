@@ -10,34 +10,48 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin }: {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+    }:
+    {
 
-    darwinConfigurations."Hopper" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules =
-        [ home-manager.darwinModules.home-manager ./hosts/Hopper/default.nix ];
-    };
-
-    darwinConfigurations."Kare" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules =
-        [ home-manager.darwinModules.home-manager ./hosts/Kare/default.nix ];
-    };
-
-    darwinConfigurations."M11X0076" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        home-manager.darwinModules.home-manager
-        ./hosts/M11X0076/default.nix
-      ];
-    };
-
-    homeConfigurations.pw-standalone =
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [ ./modules/home ./modules/neovim ];
+      darwinConfigurations."Hopper" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/Hopper/default.nix
+        ];
       };
 
-    # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
-  };
+      darwinConfigurations."Kare" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/Kare/default.nix
+        ];
+      };
+
+      darwinConfigurations."M11X0076" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/M11X0076/default.nix
+        ];
+      };
+
+      homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        modules = [
+          ./modules/home
+          ./modules/neovim
+        ];
+      };
+
+      # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+    };
 }

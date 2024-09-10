@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   homebrew = {
     enable = true;
 
@@ -10,12 +11,23 @@
       upgrade = true;
     };
 
-    taps = [ "homebrew/cask-fonts" "homebrew/cask-versions" {
-      name = "zen-browser/browser";
-      clone_target = "https://github.com/zen-browser/desktop.git";
-    } ];
+    taps = [
+      "homebrew/cask-fonts"
+      "homebrew/cask-versions"
+      "oven-sh/bun"
+      {
+        name = "zen-browser/browser";
+        clone_target = "https://github.com/zen-browser/desktop.git";
+      }
+    ];
 
-    brews = [ "nss" "openconnect" "oven-sh/bun/bun" "pkl" "swift-format" ];
+    brews = [
+      "nss"
+      "openconnect"
+      "bun"
+      "pkl"
+      "swift-format"
+    ];
 
     casks = [
       "1password"

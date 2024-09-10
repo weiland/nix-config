@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   enable = true;
   settings = {
     theme = "onelight";
@@ -14,8 +15,10 @@
       space.x = ":x";
     };
   };
-  languages.language = [{
-    name = "elixir";
-    auto-format = true;
-  }];
+  languages.language = [
+    {
+      name = "elixir";
+      auto-format = true;
+    }
+  ];
 }
