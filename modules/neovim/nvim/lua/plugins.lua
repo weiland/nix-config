@@ -120,7 +120,7 @@ lspconfig.denols.setup({
   root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   capabilities = capabilities,
   on_attach = require('lsp').on_attach,
   root_dir =  util.root_pattern('package.json'),
