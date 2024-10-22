@@ -302,10 +302,11 @@
           email = "pasweiland@gmail.com";
           signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         };
-        url."git@github.com:" = {
-          insteadOf = "https://github.com/";
-          pushInsteadOf = "https://github.com/";
-        };
+        # this breaks Swift Packages in Xcode
+        # url."git@github.com:" = {
+        #   insteadOf = "https://github.com/";
+        #   pushInsteadOf = "https://github.com/";
+        #};
       };
       ignores = [
         ".DS_Store"

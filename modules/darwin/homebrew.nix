@@ -15,10 +15,6 @@
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
       "oven-sh/bun"
-      {
-        name = "zen-browser/browser";
-        clone_target = "https://github.com/zen-browser/desktop.git";
-      }
     ];
 
     brews = [
@@ -102,7 +98,7 @@
       # Texifier = 458866234;
       # UrbanVPNDesktop = 1517772049;
       WireGuard = 1451685025;
-      # XCode = 497799835; # commented out until release
+      XCode = 497799835;
     };
   };
 }
