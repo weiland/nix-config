@@ -84,7 +84,7 @@
       })
       nix-output-monitor
       nmap
-      nodejs_22
+      nodejs_23
       #openconnect # fails
       pdfgrep
       podman # trying out as docker replacement
