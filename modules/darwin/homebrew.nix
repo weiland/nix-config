@@ -32,6 +32,7 @@
       "arc"
       "dash"
       "discord"
+      "element"
       "eloston-chromium"
       "firefox@developer-edition"
       # "git-town"
