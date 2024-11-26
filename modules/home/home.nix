@@ -128,7 +128,7 @@
       MANPAGER = "nvim +Man!";
 
       # faster nodejs script loads (on disk caching)
-      NODE_COMPILE_CACHE = "~/.cache/nodejs-compile-cache";
+      NODE_COMPILE_CACHE = "$HOME/.cache/nodejs-compile-cache";
 
       # XDG_CACHE_HOME  = "$HOME/.cache"; # is conflicting (but seems to already have the right value)
       # XDG_CONFIG_HOME = "$HOME/.config";
