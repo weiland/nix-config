@@ -39,7 +39,7 @@ in
     nodePackages.typescript-language-server
     nodePackages.eslint_d
     nodePackages.svelte-language-server
-    nodePackages.vue-language-server
+    # nodePackages.vue-language-server # deprecated
     # nodePackages.eslint
     shellcheck
     statix # Lints and suggestions for the nix programming language

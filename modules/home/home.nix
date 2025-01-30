@@ -63,25 +63,21 @@
       julia-mono
       jq
       # neovim # due to lua config trouble up here
-      (nerdfonts.override {
-        fonts = [
-          "AnonymousPro"
-          "CascadiaCode"
-          "CommitMono"
-          "FiraCode"
-          "Hack"
-          "Hasklig"
-          "GeistMono"
-          "Monaspace"
-          "IBMPlexMono"
-          "IntelOneMono"
-          "Iosevka"
-          "JetBrainsMono"
-          "Meslo"
-          "SourceCodePro"
-          "ZedMono"
-        ];
-      })
+      nerd-fonts.anonymice
+      nerd-fonts.caskaydia-cove # Cascadia-Code
+      nerd-fonts.commit-mono
+      nerd-fonts.fira-code
+      nerd-fonts.hack
+      nerd-fonts.hasklug
+      nerd-fonts.geist-mono
+      nerd-fonts.monaspace
+      nerd-fonts.blex-mono
+      nerd-fonts.intone-mono
+      nerd-fonts.iosevka
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.meslo-lg
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.zed-mono
       nix-output-monitor
       nmap
       nodejs_23
@@ -136,7 +132,7 @@
       # XDG_STATE_HOME   = "$HOME/.local/state";
       XDG_BIN_HOME = "$HOME/.local/bin";
 
-      STARSHIP_LOG="error";
+      STARSHIP_LOG = "error";
     };
 
   };
