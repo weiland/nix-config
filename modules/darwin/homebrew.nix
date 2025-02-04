@@ -50,7 +50,7 @@
       "obsidian"
       "orbstack"
       # "qgis"
-      "pitch"
+      # "pitch"
       "postgres-unofficial"
       "qlcolorcode"
       "qlimagesize"
