@@ -95,7 +95,7 @@
       tig
       tree-sitter
       wifi-password
-      xsv
+      xan # xsv is not maintained :c
       yt-dlp
 
       yarn-berry

@@ -182,12 +182,12 @@
               return 1
             end
 
-            if not type -q xsv
-              echo '"xsv" is not installed'
+            if not type -q xan
+              echo '"xan" is not installed'
               return 1
             end
 
-            xsv search -i "$argv" "$RECENTTRACKS" | xsv select utc_time,artist,track,album | xsv table
+            xan search -i "$argv" "$RECENTTRACKS" | xan select utc_time,artist,track,album | xan view --all
           '';
         };
         mkd = {
