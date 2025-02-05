@@ -45,6 +45,7 @@
       "keyboard-cleaner"
       # "lulu"
       "mactracker" # takes too long
+      # "marta"
       # "microsoft-edge@beta"
       "mullvadvpn"
       "obsidian"
