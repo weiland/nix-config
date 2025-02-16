@@ -261,12 +261,12 @@
         };
         diff.algorithm = "histogram";
         difftool.prompt = false;
-        gpg = {
-          format = "ssh";
-          ssh = {
-            allowedSignersFile = "~/.ssh/allowed_signers";
-          };
-        };
+        # gpg = {
+        #   format = "ssh";
+        #   ssh = {
+        #     allowedSignersFile = "~/.ssh/allowed_signers";
+        #   };
+        # };
         help = {
           autocorrect = "prompt";
         };
@@ -340,6 +340,7 @@
       ];
       lfs.enable = true;
       signing = {
+        format = "ssh";
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         signByDefault = true;
       };

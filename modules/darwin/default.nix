@@ -21,7 +21,7 @@
   # networking.dns = [ "1.1.1.1" "1.0.0.1" ]
 
   # Make sure the nix daemon always runs
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
 
   #   services.nix.package = pkgs.nixFlakes; # causes errors
 
