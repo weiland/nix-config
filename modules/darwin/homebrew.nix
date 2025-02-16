@@ -61,6 +61,7 @@
       "quicklook-json"
       "raycast"
       "rectangle"
+      "safe-exam-browser"
       "sf-symbols"
       "spotify"
       "signal"
