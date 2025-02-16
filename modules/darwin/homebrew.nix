@@ -18,9 +18,10 @@
     ];
 
     brews = [
+      "bun"
+      "llm"
       "nss"
       "openconnect"
-      "bun"
       "pkl"
       "swift-format"
     ];
