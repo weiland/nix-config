@@ -12,14 +12,29 @@
       };
     };
 
+    # often out of date
+    # bun.enable = true;
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
 
-    # used to be exa
     eza = {
       enable = true;
+    };
+
+    fd = {
+      enable = true;
+      # follow symlinks
+      extraOptions = [ "--follow" ];
+      # search for hidden dot-files
+      hidden = true;
+      # however ignore git and backups
+      ignores = [
+        ".git/"
+        "*.bak"
+      ];
     };
 
     fish = {
@@ -68,20 +83,17 @@
       interactiveShellInit = "";
       shellAliases = {
         afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
-        # cp = "cp -i";
         dl = "cd ~/Downloads";
         du = "du -hs";
-        fd = "fd --hidden --follow";
         rm = "rm -i";
         ping = "ping -c 5";
-        la = "eza -la";
+        la = "eza --long --all";
         ls = "eza";
-        ll = "eza -l --sort newest";
-        lt = "eza --tree";
+        ll = "eza --long --sort newest";
+        lla = "eza --long --all --sort newest";
         lock = "pmset sleepnow";
-        nova = "open -a Nova";
         mkdir = "mkdir -p";
-        wifiname = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
+        wifiname = "ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'";
         ql = "qlmanage -p 2>/dev/null";
       };
 
@@ -104,12 +116,11 @@
         gp = "git push";
         gpf = "git push --force-with-lease";
         gr = "git restore";
-        gs = "git status -sb";
+        gs = "git status";
         gss = "git status -sb";
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hms = "home-manager switch --flake ~/Documents/Code/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
         ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
@@ -155,24 +166,30 @@
           description = "Go to knowledge";
           body = ''
             cd ~/Documents/Code/knowledge
-            vim '+Telescope fd'
+            nvim '+Telescope fd'
           '';
         };
         kk = {
           description = "Go to knowledge and livegrep";
           body = ''
             cd ~/Documents/Code/knowledge
-            vim '+Telescope live_grep'
+            nvim '+Telescope live_grep'
+          '';
+        };
+        til = {
+          description = "Add TIL entry to Bear.app";
+          body = ''
+            open 'bear://x-callback-url/create?title=TIL&float=yes&new_window=yes&&timestamp=yes&edit=yes&tags=til,development%2Ftil&text='(string escape --style=url $argv)
           '';
         };
         tree = {
           description = "Tree of directory (aliasing eza)";
           body = ''
-            command eza --tree --all --ignore-glob .git $argv
+            command eza --tree --git-ignore --all --ignore-glob .git $argv
           '';
         };
         lastfm = {
-          description = "MKdir and cd into it.";
+          description = "Show lasftm data";
           body = ''
             set -q RECENTTRACKS || set RECENTTRACKS "/Users/$USER/.local/share/recenttracks.csv"
 
@@ -251,16 +268,34 @@
         };
       };
       extraConfig = {
+        branch.sort = "-committerdate";
         core = {
           editor = "nvim";
-          # pager = "less -F -X";
+          # faster `git status` (but rather locally)
+          # fsmonitor = true;
+          # untrackedCache = true;
         };
         credential.helper = "osxkeychain";
+        commit = {
+          # show the diff
+          verbose = true;
+        };
+        column.ui = "auto";
         color = {
           ui = true;
         };
-        diff.algorithm = "histogram";
+        diff = {
+          algorithm = "histogram";
+          colorMoved = "plain";
+          mnemonicPrefix = true;
+          renames = true;
+        };
         difftool.prompt = false;
+        fetch = {
+          all = true;
+          prune = true;
+          pruneTags = true;
+        };
         # gpg = {
         #   format = "ssh";
         #   ssh = {
@@ -270,34 +305,39 @@
         help = {
           autocorrect = "prompt";
         };
+        init = {
+          defaultBranch = "main";
+        };
         merge = {
           log = true;
           conflictStyle = "zdiff3";
         };
         push = {
-          default = "current";
+          default = "current"; # vs "simple"
           # autoSetupRemote = true; # not required if default is "current"
+          followTags = true;
         };
         pull = {
-          ff = "only";
           default = "current";
+          ff = "only";
+          # rebase = true;
         };
         rebase = {
-          autosquash = true;
-          autostash = true;
+          autoSquash = true;
+          autoStash = true;
+          updateRefs = true;
         };
         remote.origin = {
           prune = true;
         };
         rerere = {
-          enabled = 1;
+          enabled = true;
+          autoupdate = true;
         };
         status = {
           showUntrackedFiles = "normal";
         };
-        init = {
-          defaultBranch = "main";
-        };
+        tag.sort = "version:refname";
         user.gmail = {
           email = "pasweiland@gmail.com";
           signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
@@ -533,6 +573,16 @@
         # bind-key -T copy-mode-vi Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
       '';
+    };
+
+    ripgrep = {
+      enable = true;
+      arguments = [
+        # "--hidden"
+        "--max-columns=4"
+        "--max-columns-preview"
+        "--colors=line:style:bold"
+      ];
     };
 
     zoxide = {

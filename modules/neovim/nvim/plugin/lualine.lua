@@ -10,7 +10,7 @@ require('lualine').setup({
     lualine_a = { 'mode' },
     lualine_b = { {'b:gitsigns_head', icon = ''}, { 'diff', color_added = '#50fa7b' } },
     lualine_c = {
-      {'filename', file_status = true },
+      { 'filename', file_status = true, path = 1 },
       { 'diagnostics', sources = {'nvim_diagnostic'}},
       { navic.get_location, cond = navic.is_available }
     },

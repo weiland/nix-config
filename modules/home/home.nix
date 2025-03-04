@@ -39,7 +39,6 @@
     packages = with pkgs; [
       any-nix-shell
       # bun # installed via Homebrew since it's more up to date
-      # commit-mono # font with ligatures
       curl
       colima
       ddev
@@ -50,7 +49,7 @@
       elixir
       elixir_ls
       entr
-      fd
+      # fd
       ffmpeg
       # fzf
       git-open
@@ -59,7 +58,6 @@
       # iamb
       imagemagick
       input-fonts
-      # iosevka
       julia-mono
       jq
       # neovim # due to lua config trouble up here
@@ -84,7 +82,7 @@
       #openconnect # fails
       pdfgrep
       podman # trying out as docker replacement
-      ripgrep
+      # ripgrep
       rustup
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
