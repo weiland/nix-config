@@ -582,7 +582,7 @@
       enable = true;
       arguments = [
         # "--hidden"
-        # "--max-columns=10"
+        "--max-columns=256"
         "--max-columns-preview"
         "--colors=line:style:bold"
       ];
