@@ -43,7 +43,7 @@
   programs.zsh.enable = true; # for fallback Terminal
   programs.fish.enable = true;
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   launchd.user.agents.SSH-ADD = {
     serviceConfig.ProgramArguments = [

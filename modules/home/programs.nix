@@ -260,12 +260,15 @@
         remotes = "remote -v";
       };
       delta = {
-        enable = true;
+        enable = false;
         options = {
           navigate = true;
           line-numbers = true;
           syntax-theme = "Solarized (dark)";
         };
+      };
+      difftastic = {
+        enable = true;
       };
       extraConfig = {
         branch.sort = "-committerdate";
@@ -579,7 +582,7 @@
       enable = true;
       arguments = [
         # "--hidden"
-        "--max-columns=4"
+        # "--max-columns=10"
         "--max-columns-preview"
         "--colors=line:style:bold"
       ];
