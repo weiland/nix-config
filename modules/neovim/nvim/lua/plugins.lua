@@ -66,9 +66,9 @@ null_ls.setup({
     -- js,ts,etc.
     -- null_ls.builtins.formatting.prettierd.with(prettierd_options), -- daemon continues to run
     -- null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.eslint_d.with(eslint_options),
-    null_ls.builtins.diagnostics.eslint_d.with(eslint_options),
-    null_ls.builtins.code_actions.eslint_d.with(eslint_options),
+    -- null_ls.builtins.formatting.eslint_d.with(eslint_options),
+    -- null_ls.builtins.diagnostics.eslint_d.with(eslint_options),
+    -- null_ls.builtins.code_actions.eslint_d.with(eslint_options),
 
     -- shell
     null_ls.builtins.code_actions.shellcheck,

@@ -12,8 +12,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "lukas-reineke";
       repo = "headlines.nvim";
-      rev = "ddef41b2664f0ce25fe76520d708e2dc9dfebd70";
-      sha256 = "02zri3vmzjxv47qnlll3nf71i9ji8nhdabpvf4566i7iwwagqpym";
+      rev = "bf17c96a836ea27c0a7a2650ba385a7783ed322e";
+      sha256 = "1y3hffh9kb5x35a0bjggjjgyhna14nvx5rzghj1hx0yrf9b1hrid";
     };
   };
 in
@@ -37,7 +37,7 @@ in
     # prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
-    nodePackages.eslint_d
+    # nodePackages.eslint_d
     nodePackages.svelte-language-server
     # nodePackages.vue-language-server # deprecated
     vue-language-server
@@ -65,7 +65,8 @@ in
 
       # LSP
       nvim-lspconfig # Quickstart configs for Nvim LSP
-      null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+      # null-ls-nvim # is deprecated / unmaintained & archived
+      none-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
       # lsp_extensions-nvim # archived
       nvim-lsputils # Better defaults for nvim-lsp actions
 
