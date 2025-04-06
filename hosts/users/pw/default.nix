@@ -1,16 +1,19 @@
 { ... }:
+let
+  username = "pw";
+in
 {
 
-  users.users.pw = {
-    name = "pw";
-    home = "/Users/pw";
+  users.users.${username} = {
+    name = username;
+    home = "/Users/${username}";
   };
 
-  home-manager.users.pw.imports = [
+  home-manager.users.${username}.imports = [
     ../../../modules/home
     {
       home.stateVersion = "23.11";
-      home.username = "pw";
+      home.username = username;
     }
   ];
 
