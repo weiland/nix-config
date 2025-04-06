@@ -35,14 +35,6 @@
         ];
       };
 
-      darwinConfigurations."M11X0076" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/M11X0076/default.nix
-        ];
-      };
-
       homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules = [

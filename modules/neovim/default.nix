@@ -1,22 +1,7 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }:
-let
-  headlines-nvim = pkgs.vimUtils.buildVimPlugin {
-    # name = "headlines-nvim";
-    pname = "headlines-nvim";
-    version = "2023-03-29";
-    src = pkgs.fetchFromGitHub {
-      owner = "lukas-reineke";
-      repo = "headlines.nvim";
-      rev = "bf17c96a836ea27c0a7a2650ba385a7783ed322e";
-      sha256 = "1y3hffh9kb5x35a0bjggjjgyhna14nvx5rzghj1hx0yrf9b1hrid";
-    };
-  };
-in
 {
   home.sessionVariables = {
     EDITOR = "nvim";
