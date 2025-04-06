@@ -71,9 +71,9 @@ null_ls.setup({
     -- null_ls.builtins.code_actions.eslint_d.with(eslint_options),
 
     -- shell
-    null_ls.builtins.code_actions.shellcheck,
+    -- null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.formatting.fish_indent,
-    null_ls.builtins.diagnostics.shellcheck,
+    -- null_ls.builtins.diagnostics.shellcheck,
 
     -- Nix
     null_ls.builtins.code_actions.statix,
