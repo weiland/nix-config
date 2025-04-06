@@ -22,13 +22,14 @@
     # prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
-    # nodePackages.eslint_d
+    vscode-langservers-extracted
     nodePackages.svelte-language-server
     # nodePackages.vue-language-server # deprecated
     vue-language-server
-    # nodePackages.eslint
     shellcheck
+    bash-language-server # also on npm
     statix # Lints and suggestions for the nix programming language
+    astro-language-server
   ];
 
   home.shellAliases = {

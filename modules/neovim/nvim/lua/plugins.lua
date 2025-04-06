@@ -120,19 +120,42 @@ lspconfig.denols.setup({
   root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = require('lsp').on_attach,
-  root_dir =  util.root_pattern('package.json'),
-  single_file_support = false,
-})
+-- lspconfig.ts_ls.setup({
+--   capabilities = capabilities,
+--   on_attach = require('lsp').on_attach,
+--   root_dir =  util.root_pattern('package.json'),
+--   single_file_support = false,
+-- })
 
 lspconfig.svelte.setup({
   on_attach = require('lsp').on_attach,
   -- root_dir =  util.root_pattern('svelte.config.js'),
 })
 
+lspconfig.bashls.setup{}
+
+lspconfig.eslint.setup{}
+
+lspconfig.ts_ls.setup{
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/Users/pw/src/clones/language-tools/packages/typescript-plugin",
+        languages = {"javascript", "typescript", "vue"},
+      },
+    },
+  },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
+}
+
 lspconfig.volar.setup{}
+
+lspconfig.astro.setup{}
 
 -- generate help tags for all plugins
 cmd 'silent! helptags ALL'
