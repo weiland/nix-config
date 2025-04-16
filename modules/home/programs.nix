@@ -121,6 +121,8 @@
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
+        npx = "npx --yes";
+        rge = "rg -e";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
         ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
