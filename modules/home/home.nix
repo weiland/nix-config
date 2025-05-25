@@ -78,7 +78,7 @@
       nerd-fonts.zed-mono
       nix-output-monitor
       nmap
-      nodejs_23
+      nodejs_24
       #openconnect # fails
       pdfgrep
       podman # trying out as docker replacement

@@ -6,13 +6,14 @@
     ./system.nix
   ];
 
-  system.stateVersion = 4;
+  system.stateVersion = 5;
 
   nixpkgs.config = {
     allowUnfree = true;
     # for input-fonts https://input.djr.com/
     input-fonts.acceptLicense = true;
   };
+  #nixpkgs.hostPlatform = "aarch64-darwin";
 
   time.timeZone = "Europe/Berlin";
 
