@@ -344,10 +344,11 @@ On the iPhone:
 
 ### Other apps
 
+- [ ] **Xcode**: Login dev account
 - [ ] **TestFlight**: Download *Element X*
-- [ ] **Element X**: Login to matrix account & verify session
+- [ ] **Element**: Login to matrix account & verify session
 - [ ] **gh cli**: `gh auth login`: choose GitHub.com, ssh and login via browser
-- [ ] **Signal Beta**: Login & sync
+- [ ] **Signal**: Login & sync
 - [ ] **Telegram**: Login
 - [ ] **Discord**: Login
 - [ ] **Tealdeer**: Update cache `tldr --update`
@@ -358,7 +359,6 @@ On the iPhone:
 - [ ] **Sublime Text**: Tools -> Install Package Control
 - [ ] **Outlook**: Login and set Trans Pride Theme
 - [ ] **Slack**: Login
-- [ ] **Discord**: Login
 - [ ] **Spotify**: Under _Display_ Preferences, disable _now-playing panel_
 - [ ] **Spotify**: Disable the Song change notifications
 
@@ -455,6 +455,7 @@ nix fmt # using nixfmt-rfc-style
 - [ ] export crontab `crontab -l >> ~/Documents/Backups/crontab`
 - [ ] backup _recenttracks_ `cp ~/.local/share/recenttracks.csv ~/Documents/Backups/recenttracks.csv` (or download new one)
 - [ ] manually installed fonts (via _Font Book_)
+- [ ] backup Bear notes [`~/Library/Group Containers/9K33E3U3T4.net.shinyfrog.bear/Application Data/database.sqlite`](https://bear.app/faq/where-are-bears-notes-located/)
 - [ ] PhotoBooth photos
 - [ ] VS Code settings and extensions
 - [ ] optional: leftover Screenshots (in `~/tmp`)
