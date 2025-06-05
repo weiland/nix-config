@@ -80,7 +80,7 @@
 
     # disable as long as mas cli is broken
     masApps = {
-      #   Ausweisapp = 948660805;
+      AusweisAppBund = 948660805;
       Bear = 1091189122;
       Fantastical = 975937182;
       ICEBuddy = 1595947689;
