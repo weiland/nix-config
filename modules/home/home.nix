@@ -52,7 +52,7 @@
       # fd
       ffmpeg
       # fzf
-      git-open
+      # git-open # breaks :c
       htop
       httpie
       # iamb
@@ -87,9 +87,8 @@
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
       stow
-      # swift-format
       tealdeer
-      terminal-notifier # requires rosetta (and is rather old)
+      # terminal-notifier # requires rosetta (and is rather old)
       tig
       tree-sitter
       wifi-password

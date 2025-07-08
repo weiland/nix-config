@@ -20,11 +20,13 @@
     brews = [
       "bun"
       # "llm"
+      "git-open"
       "gnupg"
       "nss"
       "openconnect"
       "pkl"
       "swift-format"
+      "terminal-notifier"
     ];
 
     casks = [
