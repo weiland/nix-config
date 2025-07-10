@@ -52,7 +52,7 @@
       # fd
       ffmpeg
       # fzf
-      # git-open # breaks :c
+      # git-open # is broken due to broken xdg-utils :c
       htop
       httpie
       # iamb
