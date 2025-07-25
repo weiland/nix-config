@@ -39,6 +39,7 @@
       "element"
       # "eloston-chromium"
       "firefox@developer-edition"
+      "ghostty"
       # "git-town"
       "google-chrome@dev"
       #"homebrew/cask-versions/safari-technology-preview"

@@ -54,8 +54,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "franciscolourenco";
             repo = "done";
-            rev = "d6abb267bb3fb7e987a9352bc43dcdb67bac9f06";
-            sha256 = "1h8v5jg9kkali50qq0jn0i1w68wp4c2l0fapnglnnpg0v4vv51za";
+            rev = "0bfe402753681f705a482694fcaf20c2bfc6deb7";
+            sha256 = "0snjrqwa5ajv5fsx7sjx9lvpsclxdr0fbd43jr479ff1nc3863jq";
           };
         }
       ];
@@ -79,6 +79,11 @@
         set fish_color_autosuggestion brblack
 
         any-nix-shell fish --info-right | source
+
+        # fix ghostty
+        if test "$TERM_PROGRAM" = "ghostty"
+          set __done_notification_command "echo -e \"\033]777;notify;\$title;\$message\a\""
+        end
       '';
       interactiveShellInit = "";
       shellAliases = {
@@ -161,7 +166,7 @@
           description = "Set custom key bindings";
           body = ''
             bind \cp ctrlp
-            bind \cl 'ctrlp --hidden'
+            # bind \cl 'ctrlp --hidden' # trouble in ghostty using cmd+k
           '';
         };
         k = {
