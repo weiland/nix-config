@@ -4,7 +4,10 @@
     enable = true;
     config = {
       UserName = "${config.home.username}";
-      ProgramArguments = [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
+      ProgramArguments = [
+        "/usr/bin/ssh-add"
+        "--apple-load-keychain"
+      ];
       RunAtLoad = true;
     };
   };

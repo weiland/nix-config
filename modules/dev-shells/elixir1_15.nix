@@ -41,24 +41,23 @@
           devShells.default = pkgs.mkShell {
             name = "elixir dev";
 
-            buildInputs =
+            buildInputs = [
+              elixir
+              elixir-ls
+              locales
+            ]
+            ++ (with pkgs; [
+              # nodejs
+            ])
+            ++ optional pkgs.stdenv.isLinux pkgs.inotify-tools
+            ++ optional isDarwin pkgs.terminal-notifier
+            ++ optionals isDarwin (
+              with pkgs.darwin.apple_sdk.frameworks;
               [
-                elixir
-                elixir-ls
-                locales
+                CoreFoundation
+                CoreServices
               ]
-              ++ (with pkgs; [
-                # nodejs
-              ])
-              ++ optional pkgs.stdenv.isLinux pkgs.inotify-tools
-              ++ optional isDarwin pkgs.terminal-notifier
-              ++ optionals isDarwin (
-                with pkgs.darwin.apple_sdk.frameworks;
-                [
-                  CoreFoundation
-                  CoreServices
-                ]
-              );
+            );
 
             shellHook = ''
               mkdir -p .nix-mix

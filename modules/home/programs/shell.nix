@@ -1,6 +1,6 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
-    programs = {
+  programs = {
 
     direnv = {
       enable = true;
@@ -29,7 +29,7 @@
           };
         }
       ];
-      # loginShellInit = "" 
+      # loginShellInit = ""
       shellInit = ''
         # Set syntax highlighting colours; var names defined here:
         #set fish_color_normal normal

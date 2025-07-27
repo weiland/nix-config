@@ -189,7 +189,7 @@ cd ~/Documents/Code/weiland/nix-config
 The following commands will install the host `Hopper`. Which can be replaced with any other hostname that exists in the `./hosts/` directory.
 
 ```bash
-nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Hopper
+sudo nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Hopper
 ```
 
 You have to enter your *sudo* password (at least once, perhaps more often as longer it takes) and click on *Allow* when prompted.
@@ -200,7 +200,7 @@ You have to enter your *sudo* password (at least once, perhaps more often as lon
 TODO(weiland): Fix command below
 
 ```bash
-nix flake --extra-experimental-features 'nix-command flakes' init -t github:weiland/nix-config#darwin
+sudo nix flake --extra-experimental-features 'nix-command flakes' init -t github:weiland/nix-config#darwin
 ```
 </details>
 
@@ -218,10 +218,10 @@ Now `nix-command` and `flakes` are enabled by default, so `--extra-experimental-
 Run again:
 
 ```bash
-nix run nix-darwin -- switch --flake .#Hopper
+sudo darwin-rebuild switch --flake .#Hopper
 
 # for further times, one can use in any directory:
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Hopper
+sudo darwin-rebuild switch --flake ~/.config/nix-config#Hopper
 ```
 
 (Perhaps Full Disk Access is required. Enabled it in the _Privacy & Security_ System Settings for the current Terminal.)
@@ -441,8 +441,9 @@ nix flake update --flake ~/Documents/Code/weiland/nix-config
 
 Formatting nix files:
 
-```bash
-nix fmt # using nixfmt-rfc-style
+```fish
+# using nixfmt-rfc-style
+nix fmt **/*.nix
 ```
 
 ## Backup for a new machine
