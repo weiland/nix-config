@@ -20,6 +20,10 @@
       system = "aarch64-darwin";
       modules = [
         home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
         ./hosts/Hopper/default.nix
       ];
     };
