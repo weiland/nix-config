@@ -2,9 +2,8 @@
 {
 
   home = {
-    # stateVersion = "23.05"; # is inherited
+    stateVersion = "25.05"; # could inherited
 
-    # TODO: get name from vars
     # username = "pw";
     homeDirectory = "/Users/${config.home.username}";
 

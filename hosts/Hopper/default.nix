@@ -1,6 +1,7 @@
 { ... }:
 let
   hostname = "Hopper";
+  username = "pw";
 in
 {
   imports = [
@@ -12,10 +13,23 @@ in
       system.defaults.smb.NetBIOSName = hostname;
       system.primaryUser = "pw";
     }
-    ../users/pw
+    # ./darwin-pw
   ];
 
+  users.users.${username} = {
+    name = username;
+    home = "/Users/${username}";
+  };
+
   # home-manager
+  home-manager.users.${username}.imports = [
+    ../../modules/home
+    {
+      # home.stateVersion = "25.05";
+      home.username = username;
+    }
+  ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "hm-backup";
