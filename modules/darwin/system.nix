@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   system = {
     stateVersion = 6;
 
@@ -135,7 +135,7 @@
 
           # New window use the $HOME path
           NewWindowTarget = "PfLo";
-          NewWindowTargetPath = "file://Users/pw/";
+          #NewWindowTargetPath = "file://${config.system.primaryUser}/";
 
           # Allow text selection in Quick Look
           QLEnableTextSelection = true;
