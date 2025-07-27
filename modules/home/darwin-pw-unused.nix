@@ -1,10 +1,7 @@
 # TODO: remove if unsued
-{ ... }:
-let
+{...}: let
   username = "pw";
-in
-{
-
+in {
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
@@ -17,5 +14,4 @@ in
       home.username = username;
     }
   ];
-
 }

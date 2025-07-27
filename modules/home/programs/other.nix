@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs = {
     # TODO: disable next line? (since hm is controlled and invoked via nix-darwin)
     home-manager.enable = true;
@@ -22,7 +21,7 @@
     fd = {
       enable = true;
       # follow symlinks
-      extraOptions = [ "--follow" ];
+      extraOptions = ["--follow"];
       # search for hidden dot-files
       hidden = true;
       # however ignore git and backups

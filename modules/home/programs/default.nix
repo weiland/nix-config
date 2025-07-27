@@ -1,6 +1,4 @@
-{ ... }:
-{
-
+{...}: {
   imports = [
     ./shell.nix
     ./git.nix
@@ -8,5 +6,4 @@
     ./tmux.nix
     ./other.nix
   ];
-
 }

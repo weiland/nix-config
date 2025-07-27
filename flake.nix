@@ -10,31 +10,29 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      darwin,
-    }:
-    {
-      darwinConfigurations."Hopper" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/Hopper/default.nix
-        ];
-      };
-
-      homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [
-          ./modules/home
-          ./modules/neovim
-        ];
-      };
-
-      # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    darwin,
+  }: {
+    darwinConfigurations."Hopper" = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./hosts/Hopper/default.nix
+      ];
     };
+
+    homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {system = "aarch64-darwin";};
+      modules = [
+        ./modules/home
+        ./modules/neovim
+      ];
+    };
+
+    # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+  };
 }

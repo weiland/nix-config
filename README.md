@@ -442,7 +442,7 @@ nix flake update --flake ~/Documents/Code/weiland/nix-config
 Formatting nix files:
 
 ```fish
-# using nixfmt-rfc-style
+# using alejandra
 nix fmt **/*.nix
 ```
 

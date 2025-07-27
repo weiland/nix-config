@@ -1,7 +1,5 @@
-{ ... }:
-{
+{...}: {
   system = {
-
     stateVersion = 6;
 
     activationScripts.postActivation.text = ''
@@ -23,7 +21,6 @@
     '';
 
     defaults = {
-
       LaunchServices.LSQuarantine = false; # disable quarantine for downloaded files
 
       NSGlobalDomain = {

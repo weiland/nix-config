@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.ghostty = {
     enable = true;
     # enableFishIntegration = true;
@@ -34,7 +33,7 @@
       command = "/etc/profiles/per-user/${config.home.username}/bin/fish --login --interactive";
       # shell-integration = fish # default is detect
 
-      keybind = [ "global:alt+space=toggle_visibility" ];
+      keybind = ["global:alt+space=toggle_visibility"];
     };
   };
 }
