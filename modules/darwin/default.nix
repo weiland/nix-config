@@ -6,7 +6,7 @@
     ./system.nix
   ];
 
-  system.stateVersion = 5;
+  system.stateVersion = 6;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -46,14 +46,14 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  launchd.agents.load-ssh-keys = {
-    enable = true;
-    config = {
-      UserName = "pw";
-      RunAtLoad = true;
-      ProgramArguments = [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
-      StandardErrorPath = "/var/log/ssh-add-err.log";
-      StandardOutPath = "/var/log/ssh-add-out.log";
-    };
+  launchd.user.agents.SSH-ADD = {
+    # serviceConfig.enable = true;
+    serviceConfig.ProgramArguments = [
+      "/usr/bin/ssh-add"
+      "--apple-load-keychain"
+    ];
+    serviceConfig.RunAtLoad = true;
+    serviceConfig.StandardErrorPath = "/var/log/ssh-add-err.log";
+    serviceConfig.StandardOutPath = "/var/log/ssh-add-out.log";
   };
 }
