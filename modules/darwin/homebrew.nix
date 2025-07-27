@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
   homebrew = {
     enable = true;
 
-    # TODO: add option (at flake level) to skip homebrew update option
     caskArgs.no_quarantine = true;
     onActivation = {
       autoUpdate = true;
@@ -12,8 +11,6 @@
     };
 
     taps = [
-      # "homebrew/cask-fonts"
-      # "homebrew/cask-versions"
       "oven-sh/bun"
     ];
 
@@ -42,7 +39,6 @@
       "ghostty"
       # "git-town"
       "google-chrome@dev"
-      #"homebrew/cask-versions/safari-technology-preview"
       "iina"
       "intellij-idea"
       "iterm2"

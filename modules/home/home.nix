@@ -2,10 +2,7 @@
 {
 
   home = {
-    stateVersion = "25.05"; # could inherited
-
-    # username = "pw"; # is already set
-    homeDirectory = "/Users/${config.home.username}";
+    stateVersion = "25.05";
 
     # Files
     # disable last login message
@@ -37,7 +34,6 @@
     # Packages
     packages = with pkgs; [
       any-nix-shell
-      # bun # installed via Homebrew since it's more up to date
       curl
       colima
       ddev
@@ -59,7 +55,6 @@
       input-fonts
       julia-mono
       jq
-      # neovim # due to lua config trouble up here
       nerd-fonts.anonymice
       nerd-fonts.caskaydia-cove # Cascadia-Code
       nerd-fonts.commit-mono
@@ -106,7 +101,7 @@
     sessionPath = [
       "/opt/homebrew/bin/"
       "$HOME/.local/bin"
-      "/Users/${config.home.username}/.cache/cargo/bin"
+      "${config.home.homeDirectory}/.cache/cargo/bin"
     ];
 
     sessionVariables = {
@@ -133,17 +128,4 @@
 
   };
 
-  launchd.agents.load-ssh-keys = {
-    enable = true;
-    config = {
-      UserName = "${config.home.username}";
-      ProgramArguments = [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
-      RunAtLoad = true;
-    };
-  };
-
-  xdg.enable = true;
-
-  # prevents errors
-  manual.manpages.enable = false;
 }

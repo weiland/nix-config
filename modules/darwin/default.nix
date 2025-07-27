@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
 
   imports = [
@@ -6,14 +6,11 @@
     ./system.nix
   ];
 
-  system.stateVersion = 6;
-
   nixpkgs.config = {
     allowUnfree = true;
-    # for input-fonts https://input.djr.com/
     input-fonts.acceptLicense = true;
   };
-  #nixpkgs.hostPlatform = "aarch64-darwin";
+  nix.settings.experimental-features = "nix-command flakes";
 
   time.timeZone = "Europe/Berlin";
 
@@ -27,15 +24,10 @@
   # 	  extraOptions = "experimental-features = nix-command flakes";
   # 	};
 
-  # TODO: look into build-machines (i.e. VM or even GitHub Action running macOS)
-
   environment = {
-    # 		loginShell = pkgs.fish;
-    # 		systemPackages = my_software_pgks.nix;
-    # systemPackages = [ pkgs.rectangle ]; # TODO: does it work?
+    # loginShell = pkgs.fish;
+    # systemPackages = [ pkgs.rectangle ];
   };
-
-  nix.settings.experimental-features = "nix-command flakes";
 
   programs.zsh.enable = true; # for fallback Terminal
   programs.fish.enable = true;

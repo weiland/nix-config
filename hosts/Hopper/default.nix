@@ -11,9 +11,8 @@ in
       networking.hostName = hostname;
       networking.localHostName = hostname;
       system.defaults.smb.NetBIOSName = hostname;
-      system.primaryUser = "pw";
+      system.primaryUser = username;
     }
-    # ./darwin-pw
   ];
 
   users.users.${username} = {
@@ -24,9 +23,9 @@ in
   # home-manager
   home-manager.users.${username}.imports = [
     ../../modules/home
-    # set/overwrite the username
     {
       home.username = username;
+      home.homeDirectory = "/Users/${username}";
     }
   ];
 
