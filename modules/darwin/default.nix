@@ -17,10 +17,6 @@
 
   time.timeZone = "Europe/Berlin";
 
-  # TODO: Wireguard
-
-  # networking.dns = [ "1.1.1.1" "1.0.0.1" ]
-
   # Make sure the nix daemon always runs
   # services.nix-daemon.enable = true;
 
@@ -46,14 +42,15 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  launchd.user.agents.SSH-ADD = {
+  launchd.user.agents.SSH-ADD.serviceConfig = {
     # serviceConfig.enable = true;
-    serviceConfig.ProgramArguments = [
-      "/usr/bin/ssh-add"
+    Program = "/usr/bin/ssh-add";
+    ProgramArguments = [
       "--apple-load-keychain"
     ];
-    serviceConfig.RunAtLoad = true;
-    serviceConfig.StandardErrorPath = "/var/log/ssh-add-err.log";
-    serviceConfig.StandardOutPath = "/var/log/ssh-add-out.log";
+    RunAtLoad = true;
+    KeepAlive = false;
+    StandardErrorPath = "/var/log/ssh-add-err.log";
+    StandardOutPath = "/var/log/ssh-add-out.log";
   };
 }

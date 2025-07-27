@@ -8,6 +8,9 @@
     MANPAGER = "nvim +Man!";
   };
 
+  # since we bring our own package, it is disabled here explicitly
+  programs.neovim.enable = false;
+
   home.packages = with pkgs; [
     # neovim-nightly
     neovim

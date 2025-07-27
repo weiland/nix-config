@@ -4,7 +4,7 @@
   home = {
     stateVersion = "25.05"; # could inherited
 
-    # username = "pw";
+    # username = "pw"; # is already set
     homeDirectory = "/Users/${config.home.username}";
 
     # Files
@@ -131,6 +131,15 @@
       STARSHIP_LOG = "error";
     };
 
+  };
+
+  launchd.agents.load-ssh-keys = {
+    enable = true;
+    config = {
+      UserName = "${config.home.username}";
+      ProgramArguments = [ "/usr/bin/ssh-add" "--apple-load-keychain" ];
+      RunAtLoad = true;
+    };
   };
 
   xdg.enable = true;

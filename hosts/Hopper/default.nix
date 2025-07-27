@@ -24,8 +24,8 @@ in
   # home-manager
   home-manager.users.${username}.imports = [
     ../../modules/home
+    # set/overwrite the username
     {
-      # home.stateVersion = "25.05";
       home.username = username;
     }
   ];
