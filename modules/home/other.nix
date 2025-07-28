@@ -8,6 +8,7 @@
         "--apple-load-keychain"
       ];
       RunAtLoad = true;
+      KeepAlive = false;
     };
   };
 
