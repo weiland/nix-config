@@ -186,10 +186,10 @@
             mkdir -p $argv; and cd $argv
           '';
         };
-        data_left = {
-          description = "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
+        gcl = {
+          description = "Clone a git repo and cd into it.";
           body = ''
-            curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container, .remaining-duration'
+            git clone "$argv" && cd (basename "$argv" .git)
           '';
         };
         sncf_login = {

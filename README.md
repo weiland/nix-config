@@ -429,7 +429,7 @@ Or use _Finder_ for external hard drives or _AirDrop_.
 
 ```bash
 # in nix-config directory
-nix flake update
+nix flake update --commit-lock-file
 
 # from somewhere else
 nix flake update --flake ~/Documents/Code/weiland/nix-config
