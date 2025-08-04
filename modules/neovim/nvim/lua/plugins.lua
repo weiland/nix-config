@@ -174,8 +174,8 @@ require('headlines').setup({
         },
         codeblock_highlight = 'CodeBlock',
         dash_highlight = 'Dash',
-        fat_headline_upper_string = "▃",
-        fat_headline_lower_string = 'ﮋ', -- "▀", -- "🬂", cannot be displayed :c
+        -- fat_headline_upper_string = "▃",
+        -- fat_headline_lower_string = 'ﮋ', -- "▀", -- "🬂", cannot be displayed :c
         quote_highlight = 'Quote',
     },
 })
