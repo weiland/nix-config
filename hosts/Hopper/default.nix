@@ -3,7 +3,7 @@
   username = "pw";
 in {
   imports = [
-    ../../modules/darwin
+    ../../modules/darwin/default.nix
     {
       networking.computerName = hostname;
       networking.hostName = hostname;
@@ -20,7 +20,7 @@ in {
 
   # home-manager
   home-manager.users.${username}.imports = [
-    ../../modules/home
+    ../../modules/home/default.nix
     {
       home.username = username;
       home.homeDirectory = "/Users/${username}";
