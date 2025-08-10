@@ -75,6 +75,7 @@
       nix-output-monitor
       nmap
       nodejs_24
+      nushell
       #openconnect # fails
       pdfgrep
       podman # trying out as docker replacement
@@ -88,7 +89,7 @@
       tig
       tree-sitter
       wifi-password
-      xan # xsv is not maintained :c
+      #xan # xsv is not maintained :c # xan replaced with nushell
       yt-dlp
 
       yarn-berry
