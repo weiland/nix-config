@@ -172,12 +172,12 @@
               return 1
             end
 
-            if not type -q xan
-              echo '"xan" is not installed'
+            if not type -q nu
+              echo '"nushell" is not installed'
               return 1
             end
 
-            xan search -i "$argv" "$RECENTTRACKS" | xan select utc_time,artist,track,album | xan view --all
+            nu ~/.local/bin/recenttracks.nu "$argv"
           '';
         };
         mkd = {
