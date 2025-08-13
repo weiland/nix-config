@@ -18,6 +18,7 @@
       # "llm"
       "git-open"
       "gnupg"
+      "mitmproxy"
       "nss"
       "openconnect"
       "pkl"
