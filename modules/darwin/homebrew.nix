@@ -18,7 +18,6 @@
       # "llm"
       "git-open"
       "gnupg"
-      "mitmproxy"
       "nss"
       "openconnect"
       "pkl"
@@ -47,6 +46,7 @@
       # "lulu"
       "mactracker" # takes too long
       "marta"
+      "mitmproxy"
       # "microsoft-edge@beta"
       # "mullvadvpn"
       "obsidian"
