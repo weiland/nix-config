@@ -35,7 +35,7 @@
       "element"
       # "eloston-chromium"
       "firefox@developer-edition"
-      # "ghostty" # installed via nix home-manager
+      "ghostty" # should installed via nix home-manager
       # "git-town"
       "google-chrome@dev"
       "iina"

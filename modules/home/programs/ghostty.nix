@@ -1,6 +1,7 @@
 {config, ...}: {
   programs.ghostty = {
-    enable = true;
+    # is marked as broken :c
+    # enable = true;
     # enableFishIntegration = true;
     settings = {
       maximize = true;
