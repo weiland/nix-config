@@ -15,6 +15,11 @@ in
   xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source =
     "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 
+  home.packages = [
+    pkgs.fishPlugins.done
+    pkgs.nix-your-shell
+  ];
+
   programs = {
     direnv = {
       enable = true;
@@ -23,10 +28,7 @@ in
 
     fish = {
       enable = true;
-      plugins = [
-        pkgs.fishPlugins.done
-        pkgs.nix-your-shell
-      ];
+      plugins = [];
       # loginShellInit = ""
       # shellInit = "";
       interactiveShellInit = ''

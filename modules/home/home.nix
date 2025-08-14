@@ -72,7 +72,7 @@
       nerd-fonts.sauce-code-pro
       nerd-fonts.zed-mono
       nix-output-monitor
-      nix-your-shell
+      #nix-your-shell
       nmap
       nodejs_24
       nushell
