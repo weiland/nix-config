@@ -1,4 +1,20 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+let
+  catppuccin-fish = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "fish";
+    rev = "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed";
+    hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
+  };
+in
+{
+  # fish themes
+
+  xdg.configFile."fish/themes/Catppuccin Latte.theme".source =
+    "${catppuccin-fish}/themes/Catppuccin Latte.theme";
+  xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source =
+    "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
+
   programs = {
     direnv = {
       enable = true;
@@ -215,6 +231,7 @@
       enable = true;
       enableFishIntegration = true;
       settings = {
+        # TODOS palettes are not written into the config file
         palette = "catppuccin_latte";
         palettes = {
           rose_pine_dawn = {
