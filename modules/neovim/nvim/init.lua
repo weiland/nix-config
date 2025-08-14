@@ -1,5 +1,5 @@
 if pcall(require, 'impatient') then
-  require('impatient')
+    require('impatient')
 end
 
 -- general neovim options (without plugins)
