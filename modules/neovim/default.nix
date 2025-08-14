@@ -117,6 +117,7 @@
         neovim-ayu
         nord-nvim
         onenord-nvim
+        rose-pine
 
         # Dependencies
         popfix # nvim-lsputils, telescope-nvim

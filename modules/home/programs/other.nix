@@ -6,7 +6,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "Solarized (dark)";
+        theme = "catppuccin-latte";
         italic-text = "always";
       };
     };

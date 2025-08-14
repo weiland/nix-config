@@ -35,7 +35,6 @@
 
     # Packages
     packages = with pkgs; [
-      any-nix-shell
       curl
       colima
       ddev
@@ -73,6 +72,7 @@
       nerd-fonts.sauce-code-pro
       nerd-fonts.zed-mono
       nix-output-monitor
+      nix-your-shell
       nmap
       nodejs_24
       nushell

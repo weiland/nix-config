@@ -24,50 +24,20 @@ in
     fish = {
       enable = true;
       plugins = [
-        {
-          name = "nix-env";
-          src = pkgs.fetchFromGitHub {
-            owner = "lilyball";
-            repo = "nix-env.fish";
-            rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
-            sha256 = "069ybzdj29s320wzdyxqjhmpm9ir5815yx6n522adav0z2nz8vs4";
-          };
-        }
-        {
-          name = "done";
-          src = pkgs.fetchFromGitHub {
-            owner = "franciscolourenco";
-            repo = "done";
-            rev = "0bfe402753681f705a482694fcaf20c2bfc6deb7";
-            sha256 = "0snjrqwa5ajv5fsx7sjx9lvpsclxdr0fbd43jr479ff1nc3863jq";
-          };
-        }
+        pkgs.fishPlugins.done
+        pkgs.nix-your-shell
       ];
       # loginShellInit = ""
-      shellInit = ''
-        # Set syntax highlighting colours; var names defined here:
-        #set fish_color_normal normal
-        #set fish_color_command white
-        #set fish_color_quote brgreen
-        #set fish_color_redirection brblue
-        #set fish_color_end white
-        #set fish_color_error -o brred
-        #set fish_color_param brpurple
-        #set fish_color_comment --italics brblack
-        #set fish_color_match cyan
-        #set fish_color_search_match --background=brblack
-        #set fish_color_operator cyan
-        #set fish_color_escape white
-        #set fish_color_autosuggestion brblack
+      # shellInit = "";
+      interactiveShellInit = ''
+        # any-nix-shell fish --info-right | source
+        nix-your-shell fish | source
 
-        any-nix-shell fish --info-right | source
-
-        # fix done command for ghostty
+        # fix done command for ghostty and set bat theme
         if test "$TERM_PROGRAM" = "ghostty"
           set __done_notification_command "echo -e \"\033]777;notify;\$title;\$message\a\""
         end
       '';
-      interactiveShellInit = "";
       shellAliases = {
         afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
         dl = "cd ~/Downloads";
