@@ -8,6 +8,8 @@
     input-fonts.acceptLicense = true;
   };
 
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
   # Automatically run the nix store optimiser at a specific time.
   #nix.optimise.automatic = true;
   #nix.gc = {
@@ -15,7 +17,8 @@
   #  options = "--delete-older-than 14d";
   #};
 
-  # manage nix with nix-darwin
+  # manage nix with nix-darwin (these are all the default values)
   nix.enable = true;
   nix.package = pkgs.nix;
+  # services.nix-daemon.enable = true;
 }

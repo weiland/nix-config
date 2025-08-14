@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # nix will normally use the nixpkgs defined in home-managers inputs, we only want one copy of nixpkgs though
     darwin.url = "github:nix-darwin/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -25,6 +24,10 @@
           home-manager.useUserPackages = true;
         }
         ./hosts/Hopper/default.nix
+          {
+            # Set Git commit hash for darwin-version.
+            system.configurationRevision = self.rev or self.dirtyRev or null;
+          }
       ];
     };
 
