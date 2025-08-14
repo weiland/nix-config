@@ -21,7 +21,7 @@
     # prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
-    vscode-langservers-extracted
+    # vscode-langservers-extracted # use vscode-html-languageservice
     nodePackages.svelte-language-server
     # nodePackages.vue-language-server # deprecated
     vue-language-server
