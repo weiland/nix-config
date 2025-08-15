@@ -21,7 +21,8 @@
     # prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
-    # vscode-langservers-extracted # use vscode-html-languageservice
+    # is somewhat broken (in zed)
+    vscode-langservers-extracted # use vscode-html-languageservice
     nodePackages.svelte-language-server
     # nodePackages.vue-language-server # deprecated
     vue-language-server
