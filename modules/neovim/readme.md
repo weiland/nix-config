@@ -7,7 +7,23 @@
 
 ## Packages
 
-are installed via nix.
+are installed via nix home-manager.
+
+language (servers):
+- astro-language-server
+- bash-language-server
+    - uses `shellcheck`
+- nil
+- vscode-langservers-extracted
+    contains: `html`, `json`, `css` and `typescript`
+- vtsls
+- vue-language-server
+
+other "lanugages" / linting (none-ls):
+- credo
+- gitlint
+- statix
+- alejandra
 
 - impatient
 - nvim-lspconfig

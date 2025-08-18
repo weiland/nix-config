@@ -78,6 +78,9 @@ null_ls.setup({
     -- Nix
     null_ls.builtins.code_actions.statix,
 
+    -- Nix Formatting with alejandra
+    -- null_ls.builtins.formatting.alejandra
+
     -- Elixir
     null_ls.builtins.diagnostics.credo,
 
@@ -95,9 +98,10 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript"
 }
 
--- nil_ls setup using lspconfig
 local lspconfig = require('lspconfig')
 local capabilities = require('lsp').capabilities(),
+
+-- nil_ls setup using lspconfig
 lspconfig.nil_ls.setup({
   autostart = true,
   capabilities = capabilities,
@@ -107,7 +111,7 @@ lspconfig.nil_ls.setup({
   settings = {
     ['nil'] = {
       formatting = {
-        command = { "nixpkgs-fmt" }
+        command = { "nixfmt" } -- or alejandra
       },
     },
   },
@@ -136,7 +140,18 @@ lspconfig.bashls.setup{}
 
 lspconfig.eslint.setup{}
 
+
+lspconfig.html.setup{
+  capabilities = capabilities,
+  on_attach = require('lsp').on_attach,
+  -- cmd = { 'node', '/Users/pw/Library/Application Support/Zed/extensions/work/html/node_modules/.bin/vscode-html-language-server', '--stdio' },
+}
+
 lspconfig.ts_ls.setup{
+  capabilities = capabilities,
+  on_attach = require('lsp').on_attach,
+-- using zed's language servers
+  cmd = { '/Users/pw/Library/Application Support/Zed/languages/vtsls/node_modules/.bin/vtsls', '--stdio' },
   init_options = {
     plugins = {
       {

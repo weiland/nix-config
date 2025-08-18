@@ -10,26 +10,29 @@
   home.packages = with pkgs; [
     # neovim-nightly
     neovim
-    lua51Packages.mpack
+    #lua51Packages.mpack
+
+    # language servers
+    nil # Nix language server
+    astro-language-server
+    bash-language-server # also on npm
+    shellcheck
+    vscode-langservers-extracted # is somewhat broken (in zed)
+    vue-language-server
+    nodePackages.svelte-language-server
+
+    # for none-ls (formerly null-ls)
+    nixfmt
+    gitlint
+    statix # Lints and suggestions for the nix programming language
 
     # cargo # required for https://github.com/jeertmans/languagetool-rust
-    gitlint
     #hadolint # docker linting (failes atm due to ilist-0.4.0.1.drv)
-    nil # Nix language server
-    nixpkgs-fmt
+    #nixpkgs-fmt
     # nodePackages.prettier
     # prettierd
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    # is somewhat broken (in zed)
-    vscode-langservers-extracted # use vscode-html-languageservice
-    nodePackages.svelte-language-server
-    # nodePackages.vue-language-server # deprecated
-    vue-language-server
-    shellcheck
-    bash-language-server # also on npm
-    statix # Lints and suggestions for the nix programming language
-    astro-language-server
+    #nodePackages.typescript
+    #nodePackages.typescript-language-server
   ];
 
   home.shellAliases = {
