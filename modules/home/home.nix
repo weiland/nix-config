@@ -38,14 +38,13 @@
       curl
       colima
       ddev
-      departure-mono
       deno
       #docker
       #docker-compose
       elixir
       elixir_ls
-      entr
-      # fd
+      # entr
+      # fd # comes viw home-manager
       ffmpeg
       # fzf
       # git-open # is broken due to broken xdg-utils :c
@@ -53,24 +52,7 @@
       httpie
       # iamb
       imagemagick
-      input-fonts
-      julia-mono
       jq
-      nerd-fonts.anonymice
-      nerd-fonts.caskaydia-cove # Cascadia-Code
-      nerd-fonts.commit-mono
-      nerd-fonts.fira-code
-      nerd-fonts.hack
-      nerd-fonts.hasklug
-      nerd-fonts.geist-mono
-      nerd-fonts.monaspace
-      nerd-fonts.blex-mono
-      nerd-fonts.intone-mono
-      nerd-fonts.iosevka
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.meslo-lg
-      nerd-fonts.sauce-code-pro
-      nerd-fonts.zed-mono
       nix-output-monitor
       #nix-your-shell
       nmap
@@ -78,24 +60,22 @@
       nushell
       #openconnect # fails
       pdfgrep
-      podman # trying out as docker replacement
-      # ripgrep
+      podman
+      # ripgrep # comes via home-manager
       rustup
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
-      stow
+      # stow
       tealdeer
-      # terminal-notifier # requires rosetta (and is rather old)
+      # terminal-notifier # --> works via homebrew
       tig
       tree-sitter
       wifi-password
-      #xan # xsv is not maintained :c # xan replaced with nushell
       yt-dlp
 
-      yarn-berry
       # nix # comes with nix-darwin
       nodePackages.serve
-      nodePackages.pnpm
+      pnpm
       # qgis # not on macos
     ];
 

@@ -28,10 +28,10 @@
           home-manager.useUserPackages = true;
         }
         ./hosts/Hopper/default.nix
-          {
-            # Set Git commit hash for darwin-version.
-            system.configurationRevision = self.rev or self.dirtyRev or null;
-          }
+        {
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+        }
       ];
     };
 
