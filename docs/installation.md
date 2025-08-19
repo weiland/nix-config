@@ -88,8 +88,6 @@ Or, using [Lix Installer](https://lix.systems/install/#on-any-other-linuxmacos-s
 
 ## Setup mac
 
-> using `nix-darwin`
-
 This will apply the nix-darwin config and the home-manager config, so all mac default preferences will be set as well as all apps, tools and binaries will be installed.
 
 ```bash
@@ -99,9 +97,22 @@ cd ~/Documents/Code/nix-config
 
 The following commands will install the host `Hopper`. Which can be replaced with any other hostname that exists in the `./hosts/` directory.
 
+### For the first time
+
+For the first time, the command `darwin-rebuild` is not yet installed in the `PATH`.
+
+Install `nix-darwin` and _switch_ to the _Hopper_ darwin profile:
+
+```bash
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#Hopper
+```
+
+After that the `darwin-rebuild` command is available and running `sudo darwin-rebuild switch --flake .#Hopper` works now.
 
 <details>
-<summary>If not having flakes (yet) because i.e. not using Determinate:</summary>
+<summary>__If not (yet) having _flakes___:</summary>
+
+> because i.e. not using Determinate
 
 ```bash
 sudo nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#Hopper
@@ -109,32 +120,13 @@ sudo nix run --extra-experimental-features "nix-command flakes" nix-darwin -- sw
 
 You will need to enter your *sudo* password (at least once, perhaps more often as longer it takes) and click on *Allow* when prompted.
 
-Perhaps reboot mac now.
-
 Now `nix-command` and `flakes` are enabled by default, so `--extra-experimental-features` can be omitted.
 
-</details>
 
-<details>
-<summary>Or if using flakes remotely:</summary>
-
-```bash
-sudo nix flake --extra-experimental-features 'nix-command flakes' init -t github:weiland/nix-config#darwin
-```
 </details>
 
 
-Before nix-darwin is installed/ran, you need to run
-
-```bash
-sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#Hopper
-```
-
-for the first time, because `darwin-rebuild` is not yet installed in the `PATH`.
-
-After that the command is available and running `sudo darwin-rebuild switch --flake .#Hopper` works.
-
-The next step is to **restart** the mac:
+Restart mac (optional):
 
 ```bash
 sudo reboot
@@ -156,4 +148,4 @@ sudo darwin-rebuild switch --flake ~/.config/nix-config#Hopper
 > Perhaps Full Disk Access is required. Enabled it in the _Privacy & Security_ System Settings for the current Terminal.
 
 
-If you are on new system, you can now continue in [new-mac.md#test](https://github.com/weiland/nix-config/blob/main/docs/new-mac.md#finalisation-app-preferences)
+If you are on new system, you can now continue in [new-mac.md#fianlisation](https://github.com/weiland/nix-config/blob/main/docs/new-mac.md#finalisation--app-preferences)
