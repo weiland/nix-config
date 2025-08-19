@@ -61,10 +61,7 @@ Create code directory if not yet existing.
 In iCloud:
 
 ```bash
-mkdir -p ~/Documents/Code/weiland
-mkdir ~/Documents/Code/clones
-mkdir ~/Documents/Code/tests
-mkdir ~/Documents/Code/go
+mkdir -p ~/Documents/Code/go
 ```
 
 Local. Some code does not work due to iCloud syncing or some code does not need to be in the cloud:
@@ -78,11 +75,15 @@ mkdir -p ~/src/tests
 
 It can run independently but is later controlled via _nix-darwin_.
 
+> [!NOTE]
+> nix-darwin is configured to `zap`, which uninstalls brews not listed in nix-darwin's Brewfile.
+
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-The `brew` command will ba available later after applying the home-manager settings.
+The `brew` command will ba available later after applying the home-manager settings, because it
+has to be added to the `PATH`.
 
 ## Install nix and dotfiles
 
@@ -269,7 +270,6 @@ Or use _Finder_ for external hard drives or _AirDrop_.
 > should be turned on by default
 
 - [ ] System Settings -> Privacy & Security -> Turn On __FileVault__
-
 - [ ] Also, make sure that __Find My Mac__ is enabled under _Apple ID__ -> _iCloud_.
 
 ### Time Machine
@@ -285,3 +285,4 @@ Or use _Finder_ for external hard drives or _AirDrop_.
 - [ ] git user is correct
 - [ ] git commits work
 - [ ] git push via ssh work
+- [ ] neovim works
