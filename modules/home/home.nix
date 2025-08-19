@@ -47,7 +47,7 @@
       # fd # comes viw home-manager
       ffmpeg
       # fzf
-      # git-open # is broken due to broken xdg-utils :c
+      git-open
       htop
       httpie
       # iamb

@@ -16,7 +16,7 @@
     brews = [
       "bun"
       # "llm"
-      "git-open"
+      # "git-open"
       "gnupg"
       "nss"
       "openconnect"
