@@ -148,4 +148,4 @@ sudo darwin-rebuild switch --flake ~/.config/nix-config#Hopper
 > Perhaps Full Disk Access is required. Enabled it in the _Privacy & Security_ System Settings for the current Terminal.
 
 
-If you are on new system, you can now continue in [new-mac.md#fianlisation](https://github.com/weiland/nix-config/blob/main/docs/new-mac.md#finalisation--app-preferences)
+If you are on new system, you can now continue in [new-mac.md#finalisation](https://github.com/weiland/nix-config/blob/main/docs/new-mac.md#finalisation--app-preferences)
