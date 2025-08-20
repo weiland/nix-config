@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{ lib, pkgs, ... }: let
   catppuccin-fish = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "fish";
@@ -26,7 +26,15 @@ in {
       enable = true;
       plugins = [];
       # loginShellInit = ""
-      # shellInit = "";
+      shellInit = ''
+        # TODO: figure out how to change the var on dark-mode
+        # dark themes
+        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
+        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-moon)"
+        # light themes
+        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
+        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
+      '';
       interactiveShellInit = ''
         # any-nix-shell fish --info-right | source
         nix-your-shell fish | source
