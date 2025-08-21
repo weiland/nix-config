@@ -22,16 +22,17 @@
       shellInit = ''
         # TODO: figure out how to change the var on dark-mode
         # dark themes
-        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
+        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
         #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-moon)"
         # light themes
-        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
+        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
         #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
       '';
       interactiveShellInit = ''
         nix-your-shell fish | source
 
-        fish_config theme choose 'Catppuccin Latte'
+        # fish_config theme choose 'Catppuccin Latte'
+        fish_config theme choose 'Catppuccin Macchiato'
 
         # fix done command for ghostty and set bat theme
         if test "$TERM_PROGRAM" = "ghostty"
@@ -202,8 +203,37 @@
       enableFishIntegration = true;
       settings = {
         # TODO: set theme/config via shell var (since we download the themes in `themes.nix`
-        palette = "catppuccin_latte";
+        # palette = "catppuccin_latte";
+        palette = "catppuccin_macchiato";
         palettes = {
+          catppuccin_macchiato = {
+            rosewater = "#f4dbd6";
+            flamingo = "#f0c6c6";
+            pink = "#f5bde6";
+            mauve = "#c6a0f6";
+            red = "#ed8796";
+            maroon = "#ee99a0";
+            peach = "#f5a97f";
+            yellow = "#eed49f";
+            green = "#a6da95";
+            teal = "#8bd5ca";
+            sky = "#91d7e3";
+            sapphire = "#7dc4e4";
+            blue = "#8aadf4";
+            lavender = "#b7bdf8";
+            text = "#cad3f5";
+            subtext1 = "#b8c0e0";
+            subtext0 = "#a5adcb";
+            overlay2 = "#939ab7";
+            overlay1 = "#8087a2";
+            overlay0 = "#6e738d";
+            surface2 = "#5b6078";
+            surface1 = "#494d64";
+            surface0 = "#363a4f";
+            base = "#24273a";
+            mantle = "#1e2030";
+            crust = "#181926";
+          };
           catppuccin_latte = {
             rosewater = "#dc8a78";
             flamingo = "#dd7878";

@@ -4,7 +4,7 @@
     enable = true;
     config = {
       # NOTE: themes are managed in `themes.nix`
-      theme = "catppuccin-latte";
+      theme = "catppuccin-macchiato";
       italic-text = "always";
     };
   };
