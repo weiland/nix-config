@@ -1,6 +1,5 @@
 {
   system,
-  pkgs,
   ...
 }:
 {
@@ -8,10 +7,16 @@
     experimental-features = "nix-command flakes";
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    input-fonts.acceptLicense = true;
-    hostPlatform = system;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      input-fonts.acceptLicense = true;
+      hostPlatform = system;
+    };
+
+    overlays = [
+      (import ../overlays/pnpm.nix)
+    ];
   };
 
   # Automatically run the nix store optimiser at a specific time.

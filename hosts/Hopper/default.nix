@@ -28,4 +28,6 @@ in
       home.homeDirectory = "/Users/${username}";
     }
   ];
+
+  system.stateVersion = 6;
 }
