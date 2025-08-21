@@ -37,6 +37,10 @@ const compareSemver = (a: string, b: string): number => {
 
 const OVERLAYS_DIRECTORY = './modules/overlays'
 
+/**
+ *
+ * @returns list of paths to overlay nix files
+ */
 const getOverlays = async (): Promise<string[]> => {
   const overlays: string[] = []
   for await (const path of glob(`${OVERLAYS_DIRECTORY}/*.nix`)) overlays.push(path)
@@ -207,12 +211,10 @@ const main = async () => {
       }
     }
 
-    // short output
     // console.log({ name: overlay.name, action })
     console.debug({ ...overlay, latestNixVersion, latestVersion, action })
   }
-  // console.log( await parseOverlay('../Tests/nix-nodejs_24-overaly/flake-github.nix'),
-  // await parseOverlay('../Tests/nix-nodejs_24-overaly/flake.nix') )
+  // console.log( await parseOverlay('../Tests/nix-nodejs_24-overaly/flake-github.nix'), await parseOverlay('../Tests/nix-nodejs_24-overaly/flake.nix') )
 }
 
 if (import.meta.main) {

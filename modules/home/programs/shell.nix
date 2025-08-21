@@ -20,21 +20,26 @@
       plugins = [ ];
       # loginShellInit = ""
       shellInit = ''
-        # TODO: figure out how to change the var on dark-mode
-        # dark themes
-        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
-        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-moon)"
-        # light themes
-        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
-        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
+        detect_dark_mode
+        if test "$is_dark_mode" = "true"
+          #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
+          set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-moon)"
+        else
+          set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
+          #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
+        end
       '';
       interactiveShellInit = ''
         nix-your-shell fish | source
 
-        # fish_config theme choose 'Catppuccin Latte'
-        fish_config theme choose 'Catppuccin Macchiato'
+        if test "$is_dark_mode" = "true"
+          fish_config theme choose 'rose-pine-moon'
+          #fish_config theme choose 'Catppuccin Macchiato'
+        else
+          fish_config theme choose 'Catppuccin Latte'
+        end
 
-        # fix done command for ghostty and set bat theme
+        # fix done command for ghostty
         if test "$TERM_PROGRAM" = "ghostty"
           set __done_notification_command "echo -e \"\033]777;notify;\$title;\$message\a\""
         end
@@ -107,6 +112,25 @@
               nvim -c 'lua require(\'telescope.builtin\').find_files({hidden = true})'
             else
               nvim -c 'lua require(\'telescope.builtin\').find_files()'
+            end
+          '';
+        };
+        detect_dark_mode = {
+          description = "detect if the system is in darkmode and set the global variable is_dark_mode to true.";
+          body = ''
+            set -l cache_file ~/.cache/fish_dark_mode
+            set -l plist_file ~/Library/Preferences/.GlobalPreferences.plist
+            if test -f $cache_file; and test $cache_file -nt $plist_file
+                set -g is_dark_mode (cat $cache_file)
+            else
+                # Cache is stale, update it
+                if defaults read -g AppleInterfaceStyle >/dev/null 2>&1
+                    set -g is_dark_mode true
+                    echo true > $cache_file
+                else
+                    set -g is_dark_mode false
+                    echo false > $cache_file
+                end
             end
           '';
         };
