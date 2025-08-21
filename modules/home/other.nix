@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   launchd.agents.load-ssh-keys = {
     enable = true;
     config = {

@@ -1,16 +1,9 @@
-{ lib, pkgs, ... }: let
-  catppuccin-fish = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "fish";
-    rev = "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed";
-    hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
-  };
-in {
-  # fish themes
-
-  xdg.configFile."fish/themes/Catppuccin Latte.theme".source = "${catppuccin-fish}/themes/Catppuccin Latte.theme";
-  xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
-
+{
+  lib,
+  pkgs,
+  ...
+}:
+{
   home.packages = [
     pkgs.fishPlugins.done
     pkgs.nix-your-shell
@@ -24,7 +17,7 @@ in {
 
     fish = {
       enable = true;
-      plugins = [];
+      plugins = [ ];
       # loginShellInit = ""
       shellInit = ''
         # TODO: figure out how to change the var on dark-mode
@@ -36,8 +29,9 @@ in {
         set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
       '';
       interactiveShellInit = ''
-        # any-nix-shell fish --info-right | source
         nix-your-shell fish | source
+
+        fish_config theme choose 'rose-pine-dawn'
 
         # fix done command for ghostty and set bat theme
         if test "$TERM_PROGRAM" = "ghostty"
@@ -207,18 +201,9 @@ in {
       enable = true;
       enableFishIntegration = true;
       settings = {
-        # TODOS palettes are not written into the config file
+        # TODO: set theme/config via shell var (since we download the themes in `themes.nix`
         palette = "catppuccin_latte";
         palettes = {
-          rose_pine_dawn = {
-            overlay = "#f2e9e1";
-            love = "#b4637a";
-            gold = "#ea9d34";
-            rose = "#d7827e";
-            pine = "#286983";
-            foam = "#56949f";
-            iris = "#907aa9";
-          };
           catppuccin_latte = {
             rosewater = "#dc8a78";
             flamingo = "#dd7878";

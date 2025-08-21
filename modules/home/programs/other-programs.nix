@@ -1,18 +1,10 @@
-{...}: {
+{ pkgs, ... }:
+{
   programs = {
-    # TODO: disable next line? (since hm is controlled and invoked via nix-darwin)
     home-manager.enable = true;
 
-    bat = {
-      enable = true;
-      config = {
-        theme = "catppuccin-latte";
-        italic-text = "always";
-      };
-    };
-
     # not as fast up to date as on homebrew
-    # bun.enable = true;
+    bun.enable = true;
 
     eza = {
       enable = true;
@@ -21,7 +13,7 @@
     fd = {
       enable = true;
       # follow symlinks
-      extraOptions = ["--follow"];
+      extraOptions = [ "--follow" ];
       # search for hidden dot-files
       hidden = true;
       # however ignore git and backups

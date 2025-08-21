@@ -38,9 +38,13 @@ nix-store --optimise -v
 
 ## Code formatting
 
-Formatting nix files using `alejandra`:
+Formatting nix files using `nixfmt-tree`:
 
 ```bash
+nix fmt
+
+# of if not using nixfmt-tree:
+
 nix fmt **/*.nix
 
 # or

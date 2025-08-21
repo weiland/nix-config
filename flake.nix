@@ -13,37 +13,50 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    darwin,
-  }: {
-    darwinConfigurations."Hopper" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-        }
-        ./hosts/Hopper/default.nix
-        {
-          # Set Git commit hash for darwin-version.
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-        }
-      ];
-    };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      darwin,
+    }:
+    {
 
-    homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {system = "aarch64-darwin";};
-      modules = [
-        ./modules/home
-        ./modules/neovim
-      ];
-    };
+      darwinConfigurations."Hopper" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+          }
+          ./hosts/Hopper/default.nix
+          {
+            system.stateVersion = 6;
 
-    # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-  };
+            # Set Git commit hash for darwin-version.
+            system.configurationRevision = self.rev or self.dirtyRev or null;
+          }
+          {
+            # Overlays
+            nixpkgs.overlays = [
+              (import ./modules/overlays/pnpm.nix)
+            ];
+          }
+        ];
+      };
+
+      homeConfigurations.pw-standalone = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        modules = [
+          ./modules/home
+          ./modules/neovim
+        ];
+      };
+
+      # devShells.elixir1_15 = import ./modules/dev-shells/elixir1_15.nix;
+      #formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
+    };
 }

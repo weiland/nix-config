@@ -1,8 +1,9 @@
-{...}: {
+{ ... }:
+{
   programs.ssh = {
     enable = true;
 
-    includes = ["~/Documents/Configs/ssh/private_ssh_config"];
+    includes = [ "~/Documents/Configs/ssh/private_ssh_config" ];
 
     matchBlocks = {
       "*" = {

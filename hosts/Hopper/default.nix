@@ -1,7 +1,9 @@
-{...}: let
+{ ... }:
+let
   hostname = "Hopper";
   username = "pw";
-in {
+in
+{
   imports = [
     ../../modules/darwin/default.nix
     {

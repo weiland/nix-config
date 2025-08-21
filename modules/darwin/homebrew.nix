@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   homebrew = {
     enable = true;
 
@@ -10,11 +11,11 @@
     };
 
     taps = [
-      "oven-sh/bun"
+      # "oven-sh/bun"
     ];
 
     brews = [
-      "bun"
+      # "bun"
       # "llm"
       # "git-open"
       "gnupg"
@@ -44,7 +45,7 @@
       "jumpcut"
       "keyboard-cleaner"
       # "lulu"
-      "mactracker" # takes too long
+      "mactracker"
       "marta"
       "mitmproxy"
       # "microsoft-edge@beta"
