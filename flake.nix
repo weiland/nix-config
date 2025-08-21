@@ -2,7 +2,7 @@
   description = "Darwin flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,8 +37,7 @@
 
             # Set Git commit hash for darwin-version.
             system.configurationRevision = self.rev or self.dirtyRev or null;
-          }
-          {
+
             # Overlays
             nixpkgs.overlays = [
               (import ./modules/overlays/pnpm.nix)
