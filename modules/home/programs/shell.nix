@@ -25,13 +25,13 @@
         #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-macchiato)"
         #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-moon)"
         # light themes
-        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
-        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
+        set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate catppuccin-latte)"
+        #set -x LS_COLORS "(${lib.getExe pkgs.vivid} generate rose-pine-dawn)"
       '';
       interactiveShellInit = ''
         nix-your-shell fish | source
 
-        fish_config theme choose 'rose-pine-dawn'
+        fish_config theme choose 'Catppuccin Latte'
 
         # fix done command for ghostty and set bat theme
         if test "$TERM_PROGRAM" = "ghostty"
