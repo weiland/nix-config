@@ -1,11 +1,12 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 {
   home = {
-    stateVersion = "25.05";
+    stateVersion = lib.mkForce "25.05";
 
     # Files
     # disable last login message
