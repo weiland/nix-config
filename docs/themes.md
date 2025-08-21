@@ -1,5 +1,13 @@
 # Themes
 
+## General overview
+
+- https://github.com/mbadolato/iTerm2-Color-Schemes
+    - large collection
+- https://tinted-theming.github.io/tinted-gallery/
+    - formerly https://github.com/tinted-theming/tinted-iterm2?tab=readme-ov-file
+        - formerly https://github.com/chriskempson/base16-iterm2?tab=readme-ov-file
+
 ## Themes I use
 
 - Rosé Pine
@@ -13,17 +21,19 @@
 
 from old to latest:
 
-- base16
-- OceanDark
-- OceanNext
-- Oceanic
+- Ocean (base16)
+- Nord (base16)
+- Oceanic Next (base16)
+- Oceanic Material (base24)
 
 
 ## Ohter nice themes
 
-- Ayu
-- Nord
+- One Dark (Atom)
+- Tomorrow Night (Atom)
+- ayu Mirage
 - Gruvbox
+- GitHub Light
 
 ## MacOS dark mode
 
