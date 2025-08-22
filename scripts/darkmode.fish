@@ -16,11 +16,4 @@ else
         set -g is_dark_mode false
         echo false > $cache_file
     end
-
-	# Even faster but more fragile
-	if test -f $plist_file
-		set -g is_dark_mode (plutil -extract AppleInterfaceStyle raw $plist_file 2>/dev/null | string match -q "Dark"; and echo true; or echo false)
-	else
-		set -g is_dark_mode false
-	end
 end

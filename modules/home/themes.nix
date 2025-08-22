@@ -59,6 +59,8 @@ in
     "${catppuccin-starship}/themes/frappe.toml";
   xdg.configFile."starship/catppuccin-macchiato.toml".source =
     "${catppuccin-starship}/themes/macchiato.toml";
+  # full starship config (with frappe colors)
+  xdg.configFile."starship/starship-light.toml".source = ../../data/starship-light.toml;
 
   xdg.configFile."starship/rose-pine-dawn.toml".source = "${rose-pine-starship}/rose-pine-dawn.toml";
   xdg.configFile."starship/rose-pine-moon.toml".source = "${rose-pine-starship}/rose-pine-moon.toml";
