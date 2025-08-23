@@ -4,6 +4,7 @@
     ./shell.nix
     ./bat.nix
     ./git.nix
+    ./jujutsu.nix
     ./ssh.nix
     ./tmux.nix
     ./ghostty.nix
