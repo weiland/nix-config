@@ -1,11 +1,10 @@
 {
-  config,
-  pkgs,
   ...
 }:
 {
   programs.git = {
     enable = true;
+    # default user (using GitHub noreply email)
     userName = "Pascal Weiland";
     userEmail = "weiland@users.noreply.github.com";
     aliases = {
@@ -54,12 +53,6 @@
         prune = true;
         pruneTags = true;
       };
-      # gpg = {
-      #   format = "ssh";
-      #   ssh = {
-      #     allowedSignersFile = "~/.ssh/allowed_signers";
-      #   };
-      # };
       help = {
         autocorrect = "prompt";
       };
@@ -100,7 +93,11 @@
         email = "pasweiland@gmail.com";
         signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
       };
-      # this breaks Swift Packages in Xcode
+      user.gh = {
+        email = "weiland@users.noreply.github.com";
+        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
+      };
+      # this used to break Swift Packages in Xcode
       url."git@github.com:" = {
         insteadOf = "https://github.com/";
         pushInsteadOf = "https://github.com/";
@@ -109,29 +106,15 @@
     ignores = [
       ".DS_Store"
       ".idea"
+      # ignore jujutsu directories
+      ".jj"
     ];
     includes = [
       {
-        condition = "gitdir:~/Documents/Code";
+        condition = "gitdir:~/Documents/Code/swrlab";
         contents = {
           user = {
-            email = "weiland@users.noreply.github.com";
-          };
-        };
-      }
-      {
-        condition = "gitdir:~/src/weiland";
-        contents = {
-          user = {
-            email = "weiland@users.noreply.github.com";
-          };
-        };
-      }
-      {
-        condition = "gitdir:~/Documents/Code/rp-online";
-        contents = {
-          user = {
-            email = "pascal.weiland@rp-digital.de";
+            email = "pascal.weiland@ard.de";
           };
         };
       }
