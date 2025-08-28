@@ -39,6 +39,9 @@
       if test "$TERM_PROGRAM" = "ghostty"
         set __done_notification_command "echo -e \"\033]777;notify;\$title;\$message\a\""
       end
+
+      # GPG
+      set -gx GPG_TTY (tty)
     '';
     shellAliases = {
       afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
