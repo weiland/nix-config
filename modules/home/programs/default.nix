@@ -1,12 +1,10 @@
 { ... }:
 {
   imports = [
-    ./shell.nix
-    ./bat.nix
-    ./git.nix
+    ../shell/default.nix
     ./jujutsu.nix
     ./ssh.nix
-    ./tmux.nix
+    # ./tmux.nix
     ./ghostty.nix
     # other home-manager programs
     ./other-programs.nix

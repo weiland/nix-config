@@ -3,6 +3,10 @@
   ...
 }:
 {
+  imports = [
+    ../overlays/default.nix
+  ];
+
   nix.settings = {
     experimental-features = "nix-command flakes";
   };
@@ -13,10 +17,6 @@
       input-fonts.acceptLicense = true;
       hostPlatform = system;
     };
-
-    overlays = [
-      (import ../overlays/pnpm.nix)
-    ];
   };
 
   # Automatically run the nix store optimiser at a specific time.
