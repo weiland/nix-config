@@ -133,7 +133,7 @@ const parseOverlay = async (path: string): Promise<Overlay> => {
 	return data
 }
 
-const cleanVersion = (str: string) => str.replace('v', '')
+const cleanVersion = (str: string) => str.replace(/[A-Za-z-]*/, '')
 
 const fetchGitHubVersion = async (owner: string, repo: string): Promise<string> => {
 	const [releaseResponse, tagsResponse] = await Promise.allSettled([
@@ -162,7 +162,7 @@ const fetchGitHubVersion = async (owner: string, repo: string): Promise<string> 
 		}
 	}
 
-	throw new Error('No releases or tags found')
+	throw new Error(`No releases or tags found for github:${owner}/${repo}`)
 }
 
 const fetchNPMVersion = async (name: string): Promise<string> => {
@@ -186,6 +186,15 @@ const fetchNewestVersion = async (overlay: Overlay): Promise<string> => {
 		// so far only npmjs is supported atm
 		if (/registry\.npmjs\.org/.test(overlay.url)) {
 			return await fetchNPMVersion(overlay.name)
+		}
+		// github releases
+		if (/github\.com\//.test(overlay.url)) {
+			const { owner, repo } = (overlay.url.match(/github\.com\/(?<owner>.*)\/(?<repo>.*)\/releases\//)
+				?.groups ?? {
+				owner: 'missing',
+				repo: 'regex-groups',
+			}) as { owner: string; repo: string }
+			return await fetchGitHubVersion(owner, repo)
 		}
 	}
 	// otherwise use the overlayMap from above to obtain GitHub information

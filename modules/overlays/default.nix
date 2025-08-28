@@ -1,6 +1,6 @@
 { ... }:
 {
-  # nixpkgs.overlays = [
-  #   (import ./nodejs_24.nix)
-  # ];
+  nixpkgs.overlays = [
+    (import ./bun.nix)
+  ];
 }
