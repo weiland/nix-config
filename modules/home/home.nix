@@ -37,48 +37,34 @@
 
     # Packages
     packages = with pkgs; [
-      curl
-      colima
-      ddev
+      # Languages
       deno
-      #docker
-      #docker-compose
       elixir
       elixir_ls
-      # entr
-      # fd # comes viw home-manager
-      ffmpeg
-      # fzf
-      git-open
-      htop
-      httpie
-      # iamb
-      imagemagick
-      jq
-      nix-output-monitor
-      #nix-your-shell
-      nmap
-      nodejs_24
-      nushell
-      #openconnect # fails
-      pdfgrep
-      podman
-      # ripgrep # comes via home-manager
       rustup
-      # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
-      shellcheck
-      # stow
-      tealdeer
-      # terminal-notifier # --> works via homebrew
-      tig
       tree-sitter
-      wifi-password
-      yt-dlp
-
-      # nix # comes with nix-darwin
+      mise
+      nodejs_24
       nodePackages.serve
       pnpm
+      # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
+      shellcheck
+
+      # Tools
+      age
+      curl
+      ffmpeg
+      # fzf
+      imagemagick
+      sops
       # qgis # not on macos
+
+      # Container
+      colima
+      #docker
+      #docker-compose
+      #openconnect # fails
+      podman
     ];
 
     # Session
@@ -90,7 +76,7 @@
     ];
 
     sessionVariables = {
-      GOPATH = "~/src/go";
+      GOPATH = "$HOME/Documents/Code/go";
 
       DOCKER_SCAN_SUGGEST = "false";
 
@@ -102,7 +88,7 @@
       # faster nodejs script loads (on disk caching)
       NODE_COMPILE_CACHE = "$HOME/.cache/nodejs-compile-cache";
 
-      # XDG_CACHE_HOME  = "$HOME/.cache"; # is conflicting (but seems to already have the right value)
+      # XDG_CACHE_HOME  = "$HOME/.cache";
       # XDG_CONFIG_HOME = "$HOME/.config";
       # XDG_DATA_HOME   = "$HOME/.local/share";
       # XDG_STATE_HOME   = "$HOME/.local/state";

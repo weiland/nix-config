@@ -7,6 +7,8 @@
     input-fonts
     julia-mono
 
+    maple-mono.NF
+
     monaspace
 
     nerd-fonts.anonymice

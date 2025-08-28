@@ -4,9 +4,25 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.fishPlugins.done
-    pkgs.nix-your-shell
+  home.packages = with pkgs; [
+    comma
+    fishPlugins.done
+    git-open
+    httpie
+    htop
+    hyperfine
+    jq
+    nmap
+    nushell
+    nix-output-monitor
+    nix-your-shell
+    pdfgrep
+    sd # sed replacement
+    tealdeer
+    # terminal-notifier # --> works better via homebrew
+    tig
+    wifi-password
+    yt-dlp
   ];
 
   programs = {
