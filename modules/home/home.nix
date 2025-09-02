@@ -56,6 +56,7 @@
       ffmpeg
       # fzf
       imagemagick
+      just
       sops
       # qgis # not on macos
 
