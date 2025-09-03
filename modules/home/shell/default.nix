@@ -26,7 +26,7 @@
     tealdeer
     # terminal-notifier # --> works better via homebrew
     tig
-    wifi-password
+    # wifi-password # was removed (but did not work any longer either) :c
     yt-dlp
   ];
 
