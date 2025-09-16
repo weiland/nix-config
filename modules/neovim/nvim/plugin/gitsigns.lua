@@ -1,5 +1,5 @@
 require('gitsigns').setup {
-  debug_mode = false,
+  debug_mode = true,
   signs = {
     add          = { text = '┃' },
     change       = { text = '┃' },
