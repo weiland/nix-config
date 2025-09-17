@@ -21,13 +21,13 @@ Hydra({
       },
       on_enter = function()
          vim.bo.modifiable = false
-         gitsigns.toggle_signs(true)
-         gitsigns.toggle_linehl(true)
+         -- gitsigns.toggle_signs(true)
+         -- gitsigns.toggle_linehl(true)
       end,
       on_exit = function()
-         gitsigns.toggle_signs(false)
-         gitsigns.toggle_linehl(false)
-         gitsigns.toggle_deleted(false)
+         -- gitsigns.toggle_signs(false)
+         -- gitsigns.toggle_linehl(false)
+         -- gitsigns.toggle_deleted(false)
       end
    },
    mode = {'n','x'},
@@ -35,7 +35,7 @@ Hydra({
    heads = {
       { 'J', function()
             if vim.wo.diff then return ']c' end
-            vim.schedule(function() gitsigns.next_hunk() end)
+            -- vim.schedule(function() gitsigns.next_hunk() end)
             return '<Ignore>'
          end, { expr = true } },
       { 'K', function()
