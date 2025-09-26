@@ -57,6 +57,7 @@
       mkdir = "mkdir -p";
       wifiname = "ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'";
       ql = "qlmanage -p 2>/dev/null";
+      "👉👈" = "sudo";
     };
 
     shellAbbrs = {
