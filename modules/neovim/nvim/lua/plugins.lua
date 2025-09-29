@@ -98,11 +98,11 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript"
 }
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 local capabilities = require('lsp').capabilities(),
 
 -- nil_ls setup using lspconfig
-lspconfig.nil_ls.setup({
+vim.lsp.config('nil_ls', {
   autostart = true,
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -119,35 +119,35 @@ lspconfig.nil_ls.setup({
 
 -- deno
 local util = require 'lspconfig.util'
-lspconfig.denols.setup({
+vim.lsp.config('denols', {
   on_attach = require('lsp').on_attach,
   root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 })
 
--- lspconfig.ts_ls.setup({
+-- vim.lsp.config('ts_ls', {
 --   capabilities = capabilities,
 --   on_attach = require('lsp').on_attach,
 --   root_dir =  util.root_pattern('package.json'),
 --   single_file_support = false,
 -- })
 
-lspconfig.svelte.setup({
+vim.lsp.config('svelte', {
   on_attach = require('lsp').on_attach,
   -- root_dir =  util.root_pattern('svelte.config.js'),
 })
 
-lspconfig.bashls.setup{}
+vim.lsp.enable('bashls')
 
-lspconfig.eslint.setup{}
+vim.lsp.enable('eslint')
 
 
-lspconfig.html.setup{
+vim.lsp.config('html', {
   capabilities = capabilities,
   on_attach = require('lsp').on_attach,
   -- cmd = { 'node', '/Users/pw/Library/Application Support/Zed/extensions/work/html/node_modules/.bin/vscode-html-language-server', '--stdio' },
-}
+})
 
-lspconfig.ts_ls.setup{
+vim.lsp.config('ts_ls', {
   capabilities = capabilities,
   on_attach = require('lsp').on_attach,
 -- using zed's language servers
@@ -166,11 +166,11 @@ lspconfig.ts_ls.setup{
     "typescript",
     "vue",
   },
-}
+})
 
-lspconfig.volar.setup{}
+vim.lsp.enable('vue_ls')
 
-lspconfig.astro.setup{}
+vim.lsp.enable('astro')
 
 -- generate help tags for all plugins
 cmd 'silent! helptags ALL'
