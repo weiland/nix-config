@@ -1,6 +1,6 @@
 { ... }:
 {
   nixpkgs.overlays = [
-    (import ./pnpm.nix)
+    (import ./bun.nix)
   ];
 }
