@@ -38,6 +38,8 @@
       # fix done command for ghostty
       if test "$TERM_PROGRAM" = "ghostty"
         set __done_notification_command "echo -e \"\033]777;notify;\$title;\$message\a\""
+      else
+        set __done_notification_command "echo \$message | terminal-notifier -title \$title"
       end
 
       # GPG
