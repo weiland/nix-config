@@ -18,7 +18,7 @@
       window-colorspace = "display-p3";
       window-theme = "system";
 
-      theme = "light:catppuccin-latte,dark:catppuccin-macchiato";
+      # theme = "light:catppuccin-latte,dark:catppuccin-macchiato";
 
       font-family = "JetBrainsMono NFM Regular";
       font-size = 12;
