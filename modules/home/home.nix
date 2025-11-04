@@ -40,7 +40,7 @@
       # Languages
       deno
       elixir
-      elixir_ls
+      elixir-ls
       rustup
       tree-sitter
       mise
