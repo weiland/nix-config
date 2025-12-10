@@ -5,26 +5,17 @@
   programs.git = {
     enable = true;
     # default user (using GitHub noreply email)
-    userName = "Pascal Weiland";
-    userEmail = "weiland@users.noreply.github.com";
-    aliases = {
-      identity = ''! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
-      prettylog = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
-      branches = "branch -a";
-      remotes = "remote -v";
-    };
-    delta = {
-      enable = false;
-      options = {
-        navigate = true;
-        line-numbers = true;
-        syntax-theme = "Solarized (dark)";
+    settings = {
+      user = {
+        email = "weiland@users.noreply.github.com";
+        name = "Pascal Weiland";
       };
-    };
-    difftastic = {
-      enable = true;
-    };
-    extraConfig = {
+      aliases = {
+        identity = ''! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
+        prettylog = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+        branches = "branch -a";
+        remotes = "remote -v";
+      };
       branch.sort = "-committerdate";
       core = {
         editor = "nvim";
@@ -124,6 +115,20 @@
       format = "ssh";
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
       signByDefault = true;
+    };
+  };
+  programs.delta = {
+    enable = false;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      syntax-theme = "Solarized (dark)";
+    };
+  };
+  programs.difftastic = {
+    enable = true;
+    git = {
+      enable = true;
     };
   };
 }
