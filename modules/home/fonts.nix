@@ -7,7 +7,7 @@
     input-fonts
     julia-mono
 
-    maple-mono.NF
+    maple-mono.NF-unhinted
 
     monaspace
 
