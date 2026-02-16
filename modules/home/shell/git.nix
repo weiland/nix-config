@@ -58,6 +58,7 @@
         default = "current"; # vs "simple"
         # autoSetupRemote = true; # not required if default is "current"
         followTags = true;
+        autoSetupRemote = true;
       };
       pull = {
         default = "current";
