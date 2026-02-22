@@ -78,6 +78,7 @@
       "zed"
       "zen"
       "zotero"
+      "zwift"
     ];
 
     # disable as long as mas cli is broken
