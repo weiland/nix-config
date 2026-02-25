@@ -63,6 +63,7 @@
       "quicklook-json"
       "raycast"
       "rectangle"
+      "rouvy"
       # "safe-exam-browser"
       "sf-symbols"
       "spotify"
