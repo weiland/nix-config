@@ -55,7 +55,7 @@
       "orbstack"
       # "qgis"
       # "pitch"
-      "postgres-unofficial"
+      "postgres-app"
       "qlcolorcode"
       # "qlimagesize"
       "qlmarkdown"
