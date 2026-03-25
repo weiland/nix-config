@@ -21,6 +21,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      nixpkgs-master,
     }@inputs:
     let
       system = "aarch64-darwin";

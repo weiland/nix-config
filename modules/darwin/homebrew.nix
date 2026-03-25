@@ -37,7 +37,7 @@
       "element"
       # "eloston-chromium"
       "firefox@developer-edition"
-      "ghostty" # should installed via nix home-manager
+      "ghostty" # is not available for aarch64-darwin
       # "git-town"
       "google-chrome@dev"
       "iina"
