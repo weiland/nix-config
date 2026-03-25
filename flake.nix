@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-master.inputs.follows = "";
+    # nixpkgs-master.inputs.follows = "";
   };
 
   outputs =
