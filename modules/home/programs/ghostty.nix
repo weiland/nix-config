@@ -37,6 +37,8 @@
       command = "/etc/profiles/per-user/${config.home.username}/bin/fish --login --interactive";
       # shell-integration = fish # default is detect
 
+      macos-option-as-alt = true;
+
       keybind = [ "global:alt+space=toggle_visibility" ];
     };
   };
