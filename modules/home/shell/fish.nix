@@ -36,9 +36,9 @@
       end
 
       # fix done command for iterm2
-      if test "$TERM_PROGRAM" = "iTerm.app"
-        set __done_notification_command "echo \$message | terminal-notifier -title \$title"
-      end
+      # if test "$TERM_PROGRAM" = "iTerm.app"
+        # set __done_notification_command "echo \$message | terminal-notifier -title \$title"
+      # end
 
       # GPG
       set -gx GPG_TTY (tty)
