@@ -3,7 +3,7 @@
   homebrew = {
     enable = true;
 
-    caskArgs.no_quarantine = true;
+    # caskArgs.no_quarantine = true; #deprecated in homebrew
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
@@ -11,17 +11,16 @@
     };
 
     taps = [
-      # "oven-sh/bun"
     ];
 
     brews = [
-      # "bun"
       # "llm"
-      # "git-open"
       "gnupg"
+      # "llama.cpp"
       "mole"
       "nss"
       "openconnect"
+      # "ollama"
       "pkl"
       "swift-format"
       "terminal-notifier"
@@ -35,7 +34,6 @@
       "dash"
       "discord"
       "element"
-      # "eloston-chromium"
       "firefox@developer-edition"
       "ghostty" # is not available for aarch64-darwin
       # "git-town"
@@ -46,6 +44,7 @@
       "jumpcut"
       "keyboard-cleaner"
       # "lulu"
+      "lm-studio"
       "mactracker"
       "marta"
       "mitmproxy"
