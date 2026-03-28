@@ -16,6 +16,12 @@ After that run `nix-darwin` again:
 sudo darwin-rebuild switch --flake .#Hopper
 ```
 
+or more generic if the local host name matches:
+
+```bash
+sudo darwin-rebuild switch --flake .#(scutil --get LocalHostName)
+```
+
 This is supposed to update the `nix` version.
 
 
