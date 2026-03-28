@@ -34,6 +34,10 @@
       };
     };
 
+    opencode = {
+      enable = true;
+    };
+
     ripgrep = {
       enable = true;
       arguments = [
@@ -50,4 +54,6 @@
       enableFishIntegration = true;
     };
   };
+
+  # home.packages = with pkgs; [ ollama ];
 }
