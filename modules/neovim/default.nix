@@ -21,7 +21,7 @@
     shellcheck
     vscode-langservers-extracted # is somewhat broken (in zed)
     vue-language-server
-    nodePackages.svelte-language-server
+    svelte-language-server
 
     # for none-ls (formerly null-ls)
     nixfmt
@@ -31,10 +31,7 @@
     # cargo # required for https://github.com/jeertmans/languagetool-rust
     #hadolint # docker linting (failes atm due to ilist-0.4.0.1.drv)
     #nixpkgs-fmt
-    # nodePackages.prettier
     # prettierd
-    #nodePackages.typescript
-    #nodePackages.typescript-language-server
   ];
 
   home.shellAliases = {

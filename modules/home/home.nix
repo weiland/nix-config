@@ -45,7 +45,6 @@
       tree-sitter
       mise
       nodejs_24
-      nodePackages.serve
       pnpm
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
