@@ -11,7 +11,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    # nixpkgs-master.url = "github:nixos/nixpkgs/master";
     # nixpkgs-master.inputs.follows = "";
   };
 
@@ -21,7 +21,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
-      nixpkgs-master,
+      # nixpkgs-master,
     }@inputs:
     let
       system = "aarch64-darwin";
