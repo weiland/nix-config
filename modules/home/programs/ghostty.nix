@@ -4,7 +4,7 @@
     enable = true;
     enableFishIntegration = true;
     # is not available on ARM mac :c
-    package = null;  # Ghostty is installed externally via Homebrew
+    package = null; # Ghostty is installed externally via Homebrew
 
     settings = {
       maximize = true;
