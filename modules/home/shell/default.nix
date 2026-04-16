@@ -18,7 +18,7 @@
     hyperfine
     jq
     nmap
-    nushell
+    # nushell
     nix-output-monitor
     nix-your-shell
     pdfgrep
