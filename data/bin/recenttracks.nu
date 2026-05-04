@@ -1,5 +1,5 @@
 def openTracks [] {
-    let location = $env | get --optional RECENTTRACKS | default $"($nu.home-path)/.local/share/recenttracks.csv"
+    let location = $env | get --optional RECENTTRACKS | default $"($nu.home-dir)/.local/share/recenttracks.csv"
     if ($location | path exists) {
         open --raw $location | from csv --no-infer | select utc_time artist track album
     } else {
