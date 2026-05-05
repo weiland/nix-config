@@ -55,6 +55,7 @@
       lla = "eza --long --all --sort newest";
       lock = "pmset sleepnow";
       mkdir = "mkdir -p";
+      uff = "npm";
       wifiname = "ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'";
       ql = "qlmanage -p 2>/dev/null";
       "👉👈" = "sudo";
