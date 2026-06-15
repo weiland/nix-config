@@ -58,7 +58,7 @@
       # "qlimagesize"
       "qlmarkdown"
       "qlstephen"
-      "quicklook-json"
+      # "quicklook-json"
       "raycast"
       "rectangle"
       "rouvy"
@@ -107,6 +107,10 @@
       #   # UrbanVPNDesktop = 1517772049;
       #   WireGuard = 1451685025;
       XCode = 497799835;
+
+      # Safari Extensions:
+      SaveToRaindrop = 1549370672;
+      uBlockOrigin = 6745342698;
     };
   };
 }
