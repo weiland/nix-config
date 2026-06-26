@@ -43,7 +43,7 @@
       elixir-ls
       rustup
       tree-sitter
-      mise
+      # mise
       nodejs_24
       pnpm
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
