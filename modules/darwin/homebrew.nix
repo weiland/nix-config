@@ -75,7 +75,7 @@
       "visual-studio-code"
       "vivaldi"
       "zed"
-      "zen"
+      # "zen"
       "zotero"
       # "zwift"
     ];
