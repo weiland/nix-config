@@ -39,7 +39,7 @@
     packages = with pkgs; [
       # Languages
       deno
-      elixir
+      beamPackages.elixir
       elixir-ls
       rustup
       tree-sitter
