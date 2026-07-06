@@ -16,5 +16,5 @@
   xdg.enable = true;
 
   # prevents errors
-  manual.manpages.enable = false;
+  # manual.manpages.enable = false;
 }
