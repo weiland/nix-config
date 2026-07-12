@@ -60,7 +60,7 @@
       # qgis # not on macos
 
       # Container
-      colima
+      # colima
       #docker
       #docker-compose
       #openconnect # fails
