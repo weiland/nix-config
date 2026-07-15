@@ -109,6 +109,7 @@
       XCode = 497799835;
 
       # Safari Extensions:
+      ConsentOMatic = 1606897889;
       SaveToRaindrop = 1549370672;
       uBlockOrigin = 6745342698;
     };
