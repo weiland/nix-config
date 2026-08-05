@@ -5,6 +5,7 @@
     departure-mono
 
     input-fonts
+    ioskeley-mono.normal-NF
     julia-mono
 
     maple-mono.NF-unhinted
