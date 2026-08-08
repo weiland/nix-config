@@ -71,7 +71,8 @@
 
     sessionPath = [
       "/opt/homebrew/bin/"
-      "$HOME/.local/bin"
+      "/opt/homebrew/sbin"
+      "${config.home.homeDirectory}/.local/bin"
       "${config.home.homeDirectory}/.cache/cargo/bin"
     ];
 

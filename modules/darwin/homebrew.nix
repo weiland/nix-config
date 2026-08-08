@@ -36,7 +36,7 @@
       "firefox@developer-edition"
       "ghostty" # is not available for aarch64-darwin
       # "git-town"
-      "google-chrome@dev"
+      # "google-chrome@dev" # vivaldi is also chromium-based
       "iina"
       "intellij-idea"
       "iterm2"
@@ -54,10 +54,10 @@
       # "qgis"
       # "pitch"
       "postgres-app"
-      "qlcolorcode"
+      # "qlcolorcode" # deprecated
       # "qlimagesize"
       "qlmarkdown"
-      "qlstephen"
+      # "qlstephen" #deprecated
       # "quicklook-json"
       # "raycast"
       "rectangle"
