@@ -27,7 +27,7 @@
     # terminal-notifier # --> works better via homebrew
     tig
     # wifi-password # was removed (but did not work any longer either) :c
-    yt-dlp
+    # yt-dlp # disabled because the python3.14-curl-cffi-0.15.0.drv is broken
   ];
 
   programs = {
