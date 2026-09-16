@@ -48,6 +48,7 @@
       "marta"
       "mitmproxy"
       # "microsoft-edge@beta"
+      "microsoft-teams"
       # "mullvadvpn"
       "obsidian"
       "orbstack"
