@@ -5992,7 +5992,7 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x7f-0x80000-0x33</key>
+		<key>0x7f-0x80000-0x33-0x1</key>
 		<dict>
 			<key>Action</key>
 			<integer>11</integer>
@@ -7088,7 +7088,7 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
-				<key>0x7f-0x80000-0x33</key>
+				<key>0x7f-0x80000-0x33-0x1</key>
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
