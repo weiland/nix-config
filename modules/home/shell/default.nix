@@ -55,7 +55,7 @@
     };
 
     mise = {
-      enable = true;
+      enable = false;
     };
   };
 }
